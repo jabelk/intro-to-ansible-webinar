@@ -1,0 +1,66 @@
+-   name: First Play
+    hosts: ios_devices
+    gather_facts: no
+    tasks:
+        - name: First Task - Configure CDP and LLDP 
+          ios_config:
+            lines:
+                - cdp run
+                - lldp run
+
+        - name: Second Task - Configure Interface 
+          ios_config:
+            lines:
+                - "description {{ inventory_hostname }}"
+                - ip address 172.31.1.1 255.255.255.0
+            parents: interface GigabitEthernet3
+
+        - name: Looping - configure ip helpers on multiple interfaces
+          ios_config:
+            lines:
+              - ip helper-address 172.26.1.10
+              - ip helper-address 172.26.3.8
+            parents: "{{ item }}"
+          with_items:
+            - interface GigabitEthernet2
+            - interface GigabitEthernet3
+            - interface Loopback100
+
+        - name: render a Jinja2 template onto an IOS device
+          ios_config:
+            backup: yes
+            src: ios_template.j2
+
+        - name: Render Config to Disk
+          template:
+            src: ios_template.j2
+            dest: configs/ios_config.txt
+
+        - name: run multiple commands on remote nodes
+          tags: show_command
+          ios_command:
+             commands:
+                - show version
+                - show interfaces
+          register: show_command_output
+
+        - name: Show Commands to Disk
+          tags: show_command
+          template:
+            src: show_command.j2
+            dest: show_outputs/{{ inventory_hostname }}_show_cmds.txt
+
+        - debug:
+             msg: "This is from a host var for {{ inventory_hostname }} - {{ a_group_variable }}"
+
+        - name: Gather only the config and default facts
+          ios_facts:
+            gather_subset:
+              - config
+          register: IOS_FACTS_VAR
+
+        - debug:
+             msg: "This is from a ios_facts vars for {{ inventory_hostname }} - IOS Version is {{ ansible_net_version }}"
+
+        - debug:
+             var: IOS_FACTS_VAR

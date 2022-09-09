@@ -1,0 +1,16 @@
+---
+  - name: PLAY 1 - DEPLOYING SNMP CONFIGURATIONS ON IOS
+    hosts: "all"
+    connection: network_cli
+    gather_facts: no
+    tasks:
+      - name: "TASK 1 in PLAY 1 - CONFIGURE SNMP LINES"
+        cisco.ios.ios_config:
+          lines:
+            - snmp-server community belk-demo RO
+            - snmp-server location VEGAS
+            - snmp-server contact JASON_BELK
+      - name: "TASK 2 in PLAY 1 - VERIFY SNMP LINES PRESENT"
+        cisco.ios.ios_command:
+          commands:
+            - "show run | include snmp-server"

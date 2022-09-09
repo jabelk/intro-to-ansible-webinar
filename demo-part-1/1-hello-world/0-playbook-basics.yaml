@@ -1,0 +1,31 @@
+---
+  - name: PLAY 1 - PRINTING OUT IOS HOSTNAME AND NETWORK OS
+    hosts: "iosxe"
+    connection: network_cli
+    gather_facts: no
+    tasks:
+
+    - name: "TASK 1: PRINT DEBUG MAGIC VARIABLES FOR IOS"
+      debug:
+        msg: "The hostname is {{ inventory_hostname }} with a network os of {{ ansible_network_os }}"
+
+  - name: PLAY 2 - PRINTING OUT NXOS HOSTNAME AND NETWORK OS
+    hosts: "nxos"
+    connection: network_cli
+    gather_facts: no
+    tasks:
+
+    - name: "TASK 1: PRINT DEBUG MAGIC VARIABLES FOR NXOS"
+      debug:
+        msg: "The hostname is {{ inventory_hostname }} with a network os of {{ ansible_network_os }}"
+
+
+  - name: PLAY 3 - PRINTING OUT ALL HOSTNAME AND NETWORK OS
+    hosts: all
+    connection: network_cli
+    gather_facts: no
+    tasks:
+
+    - name: "TASK 1: PRINT DEBUG MAGIC VARIABLES FOR ALL GROUPS"
+      debug:
+        msg: "The hostname is {{ inventory_hostname }} with a network os of {{ ansible_network_os }}"

@@ -1,0 +1,209 @@
+Building configuration...
+
+Current configuration : 4179 bytes
+!
+! Last configuration change at 23:33:33 UTC Tue Feb 18 2020
+!
+version 16.9
+service timestamps debug datetime msec
+service timestamps log datetime msec
+platform qfp utilization monitor load 80
+no platform punt-keepalive disable-kernel-core
+platform console serial
+!
+hostname core2
+!
+boot-start-marker
+boot-end-marker
+!
+!
+vrf definition Mgmt-intf
+ !
+ address-family ipv4
+ exit-address-family
+ !
+ address-family ipv6
+ exit-address-family
+!
+enable secret 4 tnhtc92DXBhelxjYk8LWJrPV36S2i4ntXrpb4RFmfqY
+enable password cisco
+!
+no aaa new-model
+!
+!
+!
+!
+!
+!
+!
+no ip domain lookup
+ip admission watch-list expiry-time 0
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+subscriber templating
+! 
+! 
+! 
+! 
+!
+ipv6 unicast-routing
+multilink bundle-name authenticated
+!
+!
+!
+!
+!
+crypto pki trustpoint TP-self-signed-693632872
+ enrollment selfsigned
+ subject-name cn=IOS-Self-Signed-Certificate-693632872
+ revocation-check none
+ rsakeypair TP-self-signed-693632872
+!
+!
+crypto pki certificate chain TP-self-signed-693632872
+ certificate self-signed 01
+  3082032E 30820216 A0030201 02020101 300D0609 2A864886 F70D0101 05050030 
+  30312E30 2C060355 04031325 494F532D 53656C66 2D536967 6E65642D 43657274 
+  69666963 6174652D 36393336 33323837 32301E17 0D323030 32313832 33333334 
+  385A170D 33303031 30313030 30303030 5A303031 2E302C06 03550403 1325494F 
+  532D5365 6C662D53 69676E65 642D4365 72746966 69636174 652D3639 33363332 
+  38373230 82012230 0D06092A 864886F7 0D010101 05000382 010F0030 82010A02 
+  82010100 B852C667 6DAFD8EB 847C21DB E9AB9161 7E34B375 40A925D2 0B681F66 
+  1DC15BC7 83BBB601 CE159310 B7A32D7F ED7DE959 238997C1 A19F1D51 B627F7E6 
+  54AB8D86 4F6BF475 938D216B E5983376 49E3EADD A3548A80 A4C49CD8 861C60BA 
+  F616859B 39CE0F82 C89BB852 1B7EFF91 3A787CC7 FA9D31FE 058AD7EF C18F8EC2 
+  5B6319C0 247D50B5 3CA39C20 C4D348C8 1649F6C5 AD7001D9 41E0C435 6339C181 
+  FB67196E 76F02528 9435A395 07DCCDCB 52C6024E E241E8B3 4B2AB463 9E691CEF 
+  F9BFEECA C10C84B1 15DA8902 F294B60C A0F6087C AB67FE05 73DBCE44 138D8D36 
+  C66206C2 70F581A0 639ED69C EB1E7947 B4BC32E4 440EAD3C CF6F83A9 66B12709 
+  D6E7D881 02030100 01A35330 51300F06 03551D13 0101FF04 05300301 01FF301F 
+  0603551D 23041830 16801421 01A81607 95F76DED B4F1AA77 4BAF5E9C 16A04430 
+  1D060355 1D0E0416 04142101 A8160795 F76DEDB4 F1AA774B AF5E9C16 A044300D 
+  06092A86 4886F70D 01010505 00038201 01001E4E 901CA28D 1B6B3727 E5D24FA4 
+  121D784B C383D3AE 8D821143 030EA111 8FE02FCD FE6404D7 498427D3 20E31EC9 
+  51FAC315 33D912BD F4E26DFE 7DBA85DF 02635073 48CA6AFE CC4CA194 CA84FCED 
+  D9DCE59B AF8CC100 02B0141D 8EFDEA09 51DF9102 CED2735C 889C05D9 4B296CFD 
+  DF409944 24B77B38 5FD59B02 EF4FB940 9212E066 DA8CF795 CD9A687F 21E86C53 
+  7AE38E47 A9F8724A A0259640 13034947 7BFAD0E4 82533326 EEF79516 3DE2AAFC 
+  C193565F EE79360F F64A7250 23E56719 CC2BDFD7 84A4DAEA 87C3E859 167D515F 
+  26061706 C60B734F BA04BF7E 8555E19F D61789A2 C155AD2F 181E27C0 5B86390A 
+  468D4B81 C730911D 4326F345 FA379158 74D7
+  	quit
+!
+!
+!
+!
+!
+!
+!
+!
+license udi pid CSR1000V sn 9FKNUCPC785
+license accept end user agreement
+no license smart enable
+diagnostic bootup level minimal
+!
+spanning-tree extend system-id
+!
+!
+!
+username cisco privilege 15 secret 5 $1$gQZZ$A0KxHvOwXqRydmotZrgeJ/
+!
+redundancy
+!
+!
+!
+!
+!
+!
+! 
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+! 
+! 
+!
+!
+interface Loopback0
+ no ip address
+!
+interface GigabitEthernet1
+ description OOB Management
+ vrf forwarding Mgmt-intf
+ ip address 172.16.30.73 255.255.255.0
+ negotiation auto
+ cdp enable
+ no mop enabled
+ no mop sysid
+!
+interface GigabitEthernet2
+ description to dist1
+ no ip address
+ negotiation auto
+ no mop enabled
+ no mop sysid
+!
+interface GigabitEthernet3
+ description to dist2
+ no ip address
+ negotiation auto
+ no mop enabled
+ no mop sysid
+!
+interface GigabitEthernet4
+ description core2
+ no ip address
+ negotiation auto
+ no mop enabled
+ no mop sysid
+!
+ip forward-protocol nd
+ip http server
+ip http authentication local
+ip http secure-server
+ip route vrf Mgmt-intf 0.0.0.0 0.0.0.0 172.16.30.254
+!
+ip ssh server algorithm authentication password
+!
+!
+!
+!
+!
+control-plane
+!
+!
+!
+!
+!
+!
+line con 0
+ password cisco
+ stopbits 1
+line vty 0 4
+ exec-timeout 720 0
+ password cisco
+ login local
+ transport input telnet ssh
+!
+!
+!
+!
+!
+!
+end

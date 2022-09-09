@@ -1,0 +1,6 @@
+!
+interface Loopback500
+   description Fancy port
+interface Loopback600
+   description Another fancy port
+!

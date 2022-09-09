@@ -1,0 +1,5 @@
+interfaces:
+  - name: Loopback111
+    desc: Fancy port
+  - name: Loopback112
+    desc: Another fancy port
