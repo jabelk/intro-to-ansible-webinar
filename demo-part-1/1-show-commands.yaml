@@ -36,18 +36,3 @@
     - name: "TASK 1: PRINT DEBUG MAGIC VARIABLES FOR NXOS"
       debug:
         msg: "The first interface is {{ interfaces_ntc[0]['intf'] }} with an IP Address of {{ interfaces_ntc[0]['ipaddr'] }}"
-
-    - name: "TASK 4 - RUN AND PARSE COMMAND WITH NTC_TEMPLATES"
-      ansible.utils.cli_parse:
-        command: show ip interface brief
-        parser:
-          name: ansible.netcommon.pyats
-        set_fact: interfaces_pyats
-
-    - name: "TASK : PRINT DEBUG MAGIC VARIABLES FOR IOS"
-      ansible.builtin.debug:
-        var: interfaces_pyats
-
-    - name: "TASK 1: PRINT DEBUG MAGIC VARIABLES FOR NXOS"
-      debug:
-        msg: "The first interface is {{ interfaces_pyats['interface'].keys()[0] }} with an IP Address of {{ interfaces_pyats['GigabitEthernet1']['ip_address'] }}"
