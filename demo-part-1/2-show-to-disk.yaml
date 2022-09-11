@@ -1,18 +1,25 @@
 ---
-  - name: PLAY 1 - SAVING SHOW COMMANDS FROM IOS DEVICES TO DISK
+  - name: "PLAY 1 - SAVING SHOW COMMANDS FROM IOS DEVICES TO DISK"
     hosts: "iosxe"
-    connection: network_cli
+    connection: "network_cli"
     gather_facts: no
     tasks:
 
-      - name: run multiple commands on remote nodes
+      - name: "TASK 1 - RUN MULTIPLE COMMANDS AND SAVE OUTPUT TO MEMORY"
         cisco.ios.ios_command:
             commands:
               - "show version"
               - "show interfaces"
-        register: show_command_output
+        register: "show_command_output"
 
-      - name: Show Commands to Disk
+      - name: "TASK 2 - CREATE SHOW_OUTPUTS DIR IF DOES NOT EXIST"
+        ansible.builtin.file:
+          path: "show_outputs"
+          state: "directory"
+          mode: 0775
+        run_once: true
+
+      - name: "TASK 3 - USE J2 TEMPLATE TO FORMAT AND SAVE OUTPUT"
         ansible.builtin.template:
           src: "show_command.j2"
           dest: "show_outputs/{{ inventory_hostname }}_show_cmds.txt"
