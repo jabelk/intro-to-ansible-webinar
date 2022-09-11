@@ -1,0 +1,5 @@
+{% for iname, idata in interfaces.items() %}
+interface {{ iname }}
+   description {{ idata.description }} 
+   ip address {{ idata.ipv4addr }} {{idata.subnet}}
+{% endfor %}

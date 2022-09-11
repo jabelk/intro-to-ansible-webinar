@@ -1,0 +1,19 @@
+
+---
+  - name: PLAY 1 - FACTS
+    hosts: "iosxe"
+    connection: network_cli
+    gather_facts: no
+    tasks:
+
+      - name: Merge provided configuration with device configuration
+        cisco.ios.ios_l3_interfaces:
+          config:
+          - name: Loopback124
+            ipv4:
+            - address: 192.168.0.1/24
+              secondary: true
+          - name: Loopback125
+            ipv4:
+            - address: 192.168.0.2/24
+          state: merged

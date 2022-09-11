@@ -1,0 +1,9 @@
+{% for result_item in show_result["results"] %}
+
+Command sent was "{{ result_item["item"] }}"
+
+Command Output was:
+
+{{ result_item["stdout"] }}
+
+{% endfor %}

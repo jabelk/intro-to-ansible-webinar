@@ -1,0 +1,14 @@
+---
+- name: "PLAY 1: This playbook gathers facts from sandbox-iosxe-recomm-1.cisco.com and prints them in the output and then saves it to the output folder"
+  hosts: "iosxe"            
+  connection: network_cli   
+  tasks:                    
+    - name: "TASK 1: Connect to the device to gather facts about it"
+      ios_facts:
+      register: raw_facts
+
+    - name: "TASK 5: send the output of raw_facts to a nice template and print it to a file"
+      copy:
+        content: "{{ lookup( 'template', 'facts-template.j2') }}"
+        dest: "show_outputs/{{ inventory_hostname }}.txt"
+        mode: 0664

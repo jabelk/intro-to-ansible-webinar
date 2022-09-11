@@ -1,0 +1,17 @@
+---
+  - name: PLAY 1 - FACTS
+    hosts: "iosxe"
+    connection: network_cli
+    gather_facts: no
+    tasks:
+      - name: Gather only the config and default facts
+        cisco.ios.ios_facts:
+          gather_subset:
+            - config
+        register: IOS_FACTS_VAR
+
+      - ansible.builtin.debug:
+            msg: "This is from a ios_facts vars for {{ inventory_hostname }} - IOS Version is {{ ansible_net_version }}"
+
+      - ansible.builtin.debug:
+            var: IOS_FACTS_VAR

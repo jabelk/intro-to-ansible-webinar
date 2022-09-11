@@ -1,0 +1,7 @@
+---
+all:
+  children:
+    routers:
+      hosts:
+        sandbox-iosxe-recomm-1.cisco.com:
+              

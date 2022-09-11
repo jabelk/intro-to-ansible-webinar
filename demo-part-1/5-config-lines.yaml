@@ -1,0 +1,22 @@
+
+---
+  - name: PLAY 1 - FACTS
+    hosts: "iosxe"
+    connection: network_cli
+    gather_facts: no
+    tasks:
+        - name: First Task - Configure CDP and LLDP 
+          ios_config:
+            lines:
+                - cdp run
+                - lldp run
+
+        - name: Second Task - Configure Interface 
+          ios_config:
+            lines:
+                - "description configured by Ansible"
+                - "ip address {{ loopback_ip }}"
+            parents: interface Loopback1337
+
+
+

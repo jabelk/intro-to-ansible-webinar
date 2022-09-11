@@ -1,0 +1,40 @@
+---
+  - name: "PLAY 1 - SENDING SHOW COMMANDS TO IOS DEVICES"
+    hosts: "iosxe"
+    connection: "network_cli"
+    gather_facts: no
+    tasks:
+
+    - name: "TASK 1 - SEND A SINGLE ENABLE LEVEL SHOW COMMAND"
+      cisco.ios.ios_command:
+        commands: "show version"
+
+    - name: "TASK 2 - SEND MULTIPLE ENABLE LEVEL SHOW COMMAND"
+      cisco.ios.ios_command:
+        commands:
+        - "show ip interface brief"
+        - "show interfaces"
+        - "dir"
+
+    - name: "TASK 3 - RUN AND PARSE COMMAND WITH NTC_TEMPLATES"
+      ansible.utils.cli_parse:
+        command: show ip interface brief
+        parser:
+          name: ansible.netcommon.ntc_templates
+        set_fact: interfaces_ntc
+
+    - name: "TASK 1: PRINT DEBUG MAGIC VARIABLES FOR IOS"
+      ansible.builtin.debug:
+        var: interfaces_ntc
+
+
+    - name: "TASK 4 - RUN AND PARSE COMMAND WITH NTC_TEMPLATES"
+      ansible.utils.cli_parse:
+        command: show ip interface brief
+        parser:
+          name: ansible.netcommon.pyats
+        set_fact: interfaces_pyats
+
+    - name: "TASK : PRINT DEBUG MAGIC VARIABLES FOR IOS"
+      ansible.builtin.debug:
+        var: interfaces_pyats

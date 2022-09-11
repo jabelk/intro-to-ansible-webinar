@@ -1,0 +1,11 @@
+---
+  - name: PLAY 1 - FACTS
+    hosts: "iosxe"
+    connection: network_cli
+    gather_facts: no
+    tasks:
+
+        - name: render a Jinja2 template onto an IOS device
+          ios_config:
+            backup: yes
+            src: "simple-acl.j2"

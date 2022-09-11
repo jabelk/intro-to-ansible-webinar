@@ -1,7 +1,7 @@
 ---
-  - name: PLAY 1 - PRINTING OUT IOS HOSTNAME AND NETWORK OS
+  - name: "PLAY 1 - PRINTING OUT IOS HOSTNAME AND NETWORK OS"
     hosts: "iosxe"
-    connection: network_cli
+    connection: "network_cli"
     gather_facts: no
     tasks:
 
@@ -9,9 +9,9 @@
       debug:
         msg: "The hostname is {{ inventory_hostname }} with a network os of {{ ansible_network_os }}"
 
-  - name: PLAY 2 - PRINTING OUT NXOS HOSTNAME AND NETWORK OS
+  - name: "PLAY 2 - PRINTING OUT NXOS HOSTNAME AND NETWORK OS"
     hosts: "nxos"
-    connection: network_cli
+    connection: "network_cli"
     gather_facts: no
     tasks:
 
