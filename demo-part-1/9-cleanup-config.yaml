@@ -11,12 +11,16 @@
                 - "no cdp run"
                 - "no lldp run"
 
-        - name: "TASK 2 - REMOVE INTERFACES AND ACL"
+        - name: "TASK 2 - REMOVE TEST ACL"
+          cisco.ios.ios_config:
+            lines:
+                - "no ip access-list extended test"
+
+        - name: "TASK 3 - REMOVE INTERFACES"
           cisco.ios.ios_config:
             lines:
                 - "no interface Loopback1337"
                 - "no interface Loopback124"
                 - "no interface Loopback125"
                 - "no interface Loopback1450"
-                - "no ip access-list extended test"
 

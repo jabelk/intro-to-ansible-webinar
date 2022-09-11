@@ -29,5 +29,6 @@ Tips:
 - double quotes outside everything
 - single quotes within double quotes.
 - gather facts no
+- looks for templates in playbook directory, so don't need full path unless playbooks are in a dir
 
 variables ecosystem / j2 / roles next time
