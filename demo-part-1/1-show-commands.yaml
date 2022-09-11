@@ -18,10 +18,10 @@
 
     - name: "TASK 3 - RUN AND PARSE COMMAND WITH NTC_TEMPLATES"
       ansible.utils.cli_parse:
-        command: show ip interface brief
+        command: "show ip interface brief"
         parser:
-          name: ansible.netcommon.ntc_templates
-        set_fact: interfaces_ntc
+          name: "ansible.netcommon.ntc_templates"
+        set_fact: "interfaces_ntc"
       # sample output
       # interfaces_ntc:
       # - intf: GigabitEthernet1
@@ -29,10 +29,10 @@
       #   proto: up
       #   status: up
 
-    - name: "TASK 1: PRINT DEBUG MAGIC VARIABLES FOR IOS"
+    - name: "TASK 4: PRINT DEBUG NTC PARSED OUTPUT"
       ansible.builtin.debug:
-        var: interfaces_ntc
+        var: "interfaces_ntc"
 
-    - name: "TASK 1: PRINT DEBUG MAGIC VARIABLES FOR NXOS"
+    - name: "TASK 5: PUT PARSED OUTPUT IN A STATEMENT"
       debug:
         msg: "The first interface is {{ interfaces_ntc[0]['intf'] }} with an IP Address of {{ interfaces_ntc[0]['ipaddr'] }}"

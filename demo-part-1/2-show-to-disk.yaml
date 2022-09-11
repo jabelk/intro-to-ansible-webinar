@@ -1,5 +1,5 @@
 ---
-  - name: PLAY 1 - SENDING SHOW COMMANDS TO IOS DEVICES
+  - name: PLAY 1 - SAVING SHOW COMMANDS FROM IOS DEVICES TO DISK
     hosts: "iosxe"
     connection: network_cli
     gather_facts: no
