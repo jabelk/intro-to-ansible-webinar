@@ -11,6 +11,22 @@ cd intro-to-ansible-webinar
 docker build -t intro-ansible-webinar:latest .
 docker run -dit --rm --name webinar-demo intro-ansible-webinar:latest
 docker exec -it webinar-demo bash
+cd intro-to-ansible-webinar/
+ls
+cd demo-part-1/
+ansible-playbook -i inventory.ini 0-playbook-basics.yaml -v
 ```
 
 If you are using docker, you can attach [VS Code to it](https://code.visualstudio.com/docs/remote/attach-container). You don't need to use docker, you can set up a virtual environment, or install Ansible on your device directly. Installing Ansible is not within the scope of this tutorial.
+
+Tips:
+
+- shift tab
+- vs code for yaml
+- muscle memory
+- comment out
+- don't make too many changes at once
+- double quotes outside everything
+- single quotes within double quotes.
+
+variables ecosystem / j2 / roles next time
