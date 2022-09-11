@@ -1,11 +1,11 @@
 ---
-  - name: PLAY 1 - FACTS
+  - name: "PLAY 1 - BACKUP CONFIG AND PUSH ACL TEMPLATE"
     hosts: "iosxe"
-    connection: network_cli
+    connection: "network_cli"
     gather_facts: no
     tasks:
 
-        - name: render a Jinja2 template onto an IOS device
+        - name: "TASK 1 - BACKUP CONFIG AND RENDER AND PUSH A J2 TEMPLATE" 
           ios_config:
             backup: yes
             src: "simple-acl.j2"

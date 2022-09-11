@@ -1,14 +1,21 @@
 ---
-- name: "PLAY 1: This playbook gathers facts from sandbox-iosxe-recomm-1.cisco.com and prints them in the output and then saves it to the output folder"
+- name: "PLAY 1: GATHER FACTS AND USE THOSE VALUES ON A OUTPUT TEMPLATE"
   hosts: "iosxe"            
-  connection: network_cli   
+  connection: "network_cli"   
   tasks:                    
-    - name: "TASK 1: Connect to the device to gather facts about it"
+    - name: "TASK 1: GATHER IOS DEVICE FACTS AND STORE IN MEMORY"
       ios_facts:
       register: raw_facts
 
-    - name: "TASK 5: send the output of raw_facts to a nice template and print it to a file"
-      copy:
+    - name: "TASK 2 - CREATE SHOW_OUTPUTS DIR IF DOES NOT EXIST"
+      ansible.builtin.file:
+        path: "show_outputs"
+        state: "directory"
+        mode: 0775
+      run_once: true
+
+    - name: "TASK 5: TAKE FACTS IN MEMORY AND SEND THEM TO A J2 TEMPLATE WHICH PLUGS IN TO MAKE A NICE SUMMARY"
+      ansible.builtin.copy:
         content: "{{ lookup( 'template', 'facts-template.j2') }}"
         dest: "show_outputs/{{ inventory_hostname }}.txt"
         mode: 0664

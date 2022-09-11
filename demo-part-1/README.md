@@ -28,5 +28,6 @@ Tips:
 - don't make too many changes at once
 - double quotes outside everything
 - single quotes within double quotes.
+- gather facts no
 
 variables ecosystem / j2 / roles next time

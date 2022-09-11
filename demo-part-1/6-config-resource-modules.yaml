@@ -1,19 +1,19 @@
 
 ---
-  - name: PLAY 1 - FACTS
+  - name: "PLAY 1 - DEMONSTRATE A RESOURCE MODULE FOR IOS"
     hosts: "iosxe"
-    connection: network_cli
+    connection: "network_cli"
     gather_facts: no
     tasks:
 
-      - name: Merge provided configuration with device configuration
+      - name: "TASK 1 - MERGE TWO L3 INTERFACE CONFIGS INTO RUNNING CONFIG"
         cisco.ios.ios_l3_interfaces:
           config:
-          - name: Loopback124
+          - name: "Loopback124"
             ipv4:
-            - address: 192.168.0.1/24
+            - address: "192.168.0.1/24"
               secondary: true
-          - name: Loopback125
+          - name: "Loopback125"
             ipv4:
-            - address: 192.168.0.2/24
+            - address: "192.168.0.2/24"
           state: merged

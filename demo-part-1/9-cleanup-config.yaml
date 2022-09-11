@@ -1,18 +1,18 @@
 
 ---
-  - name: PLAY 1 - FACTS
+  - name: "PLAY 1 - REMOVE CONFIG FROM DEMO"
     hosts: "iosxe"
-    connection: network_cli
+    connection: "network_cli"
     gather_facts: no
     tasks:
-        - name: First Task - Configure CDP and LLDP 
-          ios_config:
+        - name: "TASK 1 - REMOVE CDP AND LLDP"
+          cisco.ios.ios_config:
             lines:
-                - no cdp run
-                - no lldp run
+                - "no cdp run"
+                - "no lldp run"
 
-        - name: Second Task - Configure Interface 
-          ios_config:
+        - name: "TASK 2 - REMOVE INTERFACES AND ACL"
+          cisco.ios.ios_config:
             lines:
                 - "no interface Loopback1337"
                 - "no interface Loopback124"
