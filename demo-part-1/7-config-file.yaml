@@ -1,11 +1,21 @@
 ---
-  - name: "PLAY 1 - BACKUP CONFIG AND PUSH ACL TEMPLATE"
+  - name: "PLAY 1 - BACKUP CONFIG AND PUSH ACL CONFIG"
     hosts: "iosxe"
     connection: "network_cli"
     gather_facts: no
     tasks:
 
-        - name: "TASK 1 - BACKUP CONFIG AND RENDER AND PUSH A J2 TEMPLATE" 
-          ios_config:
+        - name: "TASK 1 - BACKUP CONFIG AND RENDER AND PUSH ACL CONFIG" 
+          cisco.ios.ios_config:
             backup: yes
-            src: "simple-acl.j2"
+            src: "templates/big-acl.txt"
+  
+        - name: "TASK 2 - PING TEST PROD VLAN 101" 
+          cisco.ios.ios_ping:
+            dest: "172.16.101.1"
+            count: 2
+          register: "ping_output"
+
+        - name: "TASK 3 - DEBUG OUTPUT"
+          ansible.builtin.debug:
+            msg: "The ping test result with {{ping_output['packet_loss']}}  packet loss and a rtt average of {{ping_output['rtt']['avg']}}"

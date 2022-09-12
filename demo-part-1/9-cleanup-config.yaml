@@ -3,24 +3,36 @@
   - name: "PLAY 1 - REMOVE CONFIG FROM DEMO"
     hosts: "iosxe"
     connection: "network_cli"
+    ignore_errors: yes
     gather_facts: no
     tasks:
-        - name: "TASK 1 - REMOVE CDP AND LLDP"
-          cisco.ios.ios_config:
-            lines:
-                - "no cdp run"
-                - "no lldp run"
+      - name: "TASK 1 - REMOVE CDP AND LLDP"
+        cisco.ios.ios_config:
+          lines:
+              - "no cdp run"
+              - "no lldp run"
 
-        - name: "TASK 2 - REMOVE TEST ACL"
-          cisco.ios.ios_config:
-            lines:
-                - "no ip access-list extended test"
+      - name: "TASK 2 - REMOVE TEST ACL"
+        cisco.ios.ios_config:
+          lines:
+              - "no ip access-list extended vpn-customer-1-amer-location"
 
-        - name: "TASK 3 - REMOVE INTERFACES"
-          cisco.ios.ios_config:
-            lines:
-                - "no interface Loopback1337"
-                - "no interface Loopback124"
-                - "no interface Loopback125"
-                - "no interface Loopback1450"
+      - name: "TASK 3 - REMOVE INTERFACES"
+        cisco.ios.ios_config:
+          lines:
+              - "no interface Loopback1337"
+              - "no interface Loopback124"
+              - "no interface Loopback125"
+              - "no interface Loopback1450"
 
+      - name: "TASK 4 - CREATE SHOW_OUTPUTS DIR IF DOES NOT EXIST"
+        ansible.builtin.file:
+          path: "show_outputs"
+          state: "absent"
+        run_once: true
+
+      - name: "TASK 5 - CREATE SHOW_OUTPUTS DIR IF DOES NOT EXIST"
+        ansible.builtin.file:
+          path: "backup"
+          state: "absent"
+        run_once: true

@@ -6,13 +6,13 @@
     gather_facts: no
     tasks:
         - name: "TASK 1 - CONFIGURE CDP AND LLDP"
-          ios_config:
+          cisco.ios.ios_config:
             lines:
                 - cdp run
                 - lldp run
 
         - name: "TASK 2 - CONFIGURE A LOOPBACK WITH A host_vars VARIABLE IP" 
-          ios_config:
+          cisco.ios.ios_config:
             lines:
                 - "description configured by Ansible"
                 - "ip address {{ loopback_ip }}"

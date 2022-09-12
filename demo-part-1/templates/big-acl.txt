@@ -1,0 +1,649 @@
+ip access-list extended vpn-customer-1-amer-location
+ remark for vpn-customer-1-amer-location on <HOST-devX> and <HOST-devY> 
+ permit tcp 0.0.0.0 255.255.255.224 host 173.200.209.190 eq www
+ permit tcp 0.0.0.0 255.255.255.224 host 91.124.233.173 eq www
+ permit tcp 0.0.0.0 255.255.255.224 host 91.124.233.172 eq www
+ permit tcp 0.0.0.0 255.255.255.224 host 173.200.162.71 eq www
+ permit tcp 0.0.0.0 255.255.255.224 host 173.200.222.91 eq www
+ permit tcp 0.0.0.0 255.255.255.224 host 173.200.162.70 eq www
+ permit tcp 0.0.0.0 255.255.255.224 host 173.200.162.76 eq www
+ permit tcp 0.0.0.0 255.255.255.224 host 173.200.162.77 eq www
+ permit tcp 0.0.0.0 255.255.255.224 host 173.200.162.78 eq www
+ permit tcp 0.0.0.0 255.255.255.224 host 173.200.162.87 eq www
+ permit tcp 0.0.0.0 255.255.255.224 host 173.200.6.229 eq www
+ permit tcp 0.0.0.0 255.255.255.224 host 91.124.23.144 eq www
+ permit tcp 0.0.0.0 255.255.255.224 host 91.124.23.144 eq 443
+ permit tcp 0.0.0.0 255.255.255.224 host 173.200.162.72 eq 82
+ permit tcp 0.0.0.0 255.255.255.224 host 169.170.154.176 eq www
+ permit tcp 0.0.0.0 255.255.255.224 host 169.170.154.176 eq 443
+ permit tcp 0.0.0.0 255.255.255.224 host 169.170.154.176 eq 1550
+ permit tcp 0.0.0.0 255.255.255.224 host 169.170.154.176 eq 1551
+ permit tcp 0.0.0.0 255.255.255.224 host 169.170.154.176 eq 5401
+ permit tcp 0.0.0.0 255.255.255.224 host 173.200.178.134 eq 1688
+ permit tcp 0.0.0.0 255.255.255.224 host 173.200.178.133 eq 1688
+ permit tcp 0.0.0.0 255.255.255.224 host 173.200.178.129 eq 1688
+ permit tcp 0.0.0.0 255.255.255.224 any established
+ permit icmp 0.0.0.0 255.255.255.224 any echo
+ permit icmp 0.0.0.0 255.255.255.224 any echo-reply
+ permit icmp 0.0.0.0 255.255.255.224 any time-exceeded
+ permit icmp 0.0.0.0 255.255.255.224 any unreachable
+ permit tcp 0.0.0.0 255.255.255.224 host 169.170.51.221 range 900 1023
+ permit tcp 0.0.0.0 255.255.255.224 host 169.170.51.236 range 900 1023
+ permit tcp 0.0.0.0 255.255.255.224 host 173.200.40.50 range 900 1023
+ permit tcp 0.0.0.0 255.255.255.224 eq exec host 169.170.51.221
+ permit tcp 0.0.0.0 255.255.255.224 eq exec host 169.170.51.236
+ permit tcp 0.0.0.0 255.255.255.224 eq exec host 173.200.40.50
+ permit udp 0.0.0.0 255.255.255.224 host 169.170.51.221 eq tftp
+ permit udp 0.0.0.0 255.255.255.224 host 169.170.51.236 eq tftp
+ permit udp 0.0.0.0 255.255.255.224 host 173.200.40.50 eq tftp
+ permit udp 0.0.0.0 255.255.255.224 eq snmp 169.168.251.128 0.0.0.127
+ permit udp 0.0.0.0 255.255.255.224 eq snmp 91.118.190.0 0.0.0.63
+ permit udp 0.0.0.0 255.255.255.224 eq snmp 91.118.125.0 0.0.0.127
+ permit udp 0.0.0.0 255.255.255.224 eq snmp 91.124.25.0 0.0.0.127
+ permit udp 0.0.0.0 255.255.255.224 eq snmp 156.6.106.128 0.0.0.127
+ permit udp 0.0.0.0 255.255.255.224 eq snmp 169.170.51.0 0.0.0.255
+ permit udp 0.0.0.0 255.255.255.224 eq snmp 91.118.4.192 0.0.0.63
+ permit udp 0.0.0.0 255.255.255.224 eq snmp 91.127.45.192 0.0.0.63
+ permit udp 0.0.0.0 255.255.255.224 eq snmp 91.125.229.192 0.0.0.63
+ permit udp 0.0.0.0 255.255.255.224 eq snmp 165.4.29.128 0.0.0.127
+ permit udp 0.0.0.0 255.255.255.224 eq snmp 165.4.243.0 0.0.0.127
+ permit udp 0.0.0.0 255.255.255.224 eq snmp 156.6.34.224 0.0.0.31
+ permit udp 0.0.0.0 255.255.255.224 eq snmp 156.6.20.128 0.0.0.127
+ permit udp 0.0.0.0 255.255.255.224 eq snmp 91.118.238.0 0.0.0.127
+ permit udp 0.0.0.0 255.255.255.224 eq snmp 91.118.55.0 0.0.0.127
+ permit udp 0.0.0.0 255.255.255.224 eq snmp 91.118.192.128 0.0.0.127
+ permit udp 0.0.0.0 255.255.255.224 eq snmp 172.23.84.128 0.0.0.63
+ permit udp 0.0.0.0 255.255.255.224 eq snmp 86.51.237.128 0.0.0.127
+ permit udp 0.0.0.0 255.255.255.224 eq snmp 10.63.95.0 0.0.0.255
+ permit udp 0.0.0.0 255.255.255.224 eq snmp 173.200.231.64 0.0.0.63
+ permit udp 0.0.0.0 255.255.255.224 eq snmp 173.200.40.0 0.0.0.63
+ permit udp 0.0.0.0 255.255.255.224 eq snmp 173.202.51.192 0.0.0.63
+ permit udp 0.0.0.0 255.255.255.224 eq snmp 173.200.175.0 0.0.0.63
+ permit udp 0.0.0.0 255.255.255.224 169.168.251.128 0.0.0.127 eq snmptrap
+ permit udp 0.0.0.0 255.255.255.224 91.118.190.0 0.0.0.63 eq snmptrap
+ permit udp 0.0.0.0 255.255.255.224 91.118.125.0 0.0.0.127 eq snmptrap
+ permit udp 0.0.0.0 255.255.255.224 91.124.25.0 0.0.0.127 eq snmptrap
+ permit udp 0.0.0.0 255.255.255.224 156.6.106.128 0.0.0.127 eq snmptrap
+ permit udp 0.0.0.0 255.255.255.224 169.170.51.0 0.0.0.255 eq snmptrap
+ permit udp 0.0.0.0 255.255.255.224 91.118.4.192 0.0.0.63 eq snmptrap
+ permit udp 0.0.0.0 255.255.255.224 91.127.45.192 0.0.0.63 eq snmptrap
+ permit udp 0.0.0.0 255.255.255.224 91.125.229.192 0.0.0.63 eq snmptrap
+ permit udp 0.0.0.0 255.255.255.224 165.4.29.128 0.0.0.127 eq snmptrap
+ permit udp 0.0.0.0 255.255.255.224 165.4.243.0 0.0.0.127 eq snmptrap
+ permit udp 0.0.0.0 255.255.255.224 156.6.34.224 0.0.0.31 eq snmptrap
+ permit udp 0.0.0.0 255.255.255.224 156.6.20.128 0.0.0.127 eq snmptrap
+ permit udp 0.0.0.0 255.255.255.224 91.118.238.0 0.0.0.127 eq snmptrap
+ permit udp 0.0.0.0 255.255.255.224 91.118.55.0 0.0.0.127 eq snmptrap
+ permit udp 0.0.0.0 255.255.255.224 91.118.192.128 0.0.0.127 eq snmptrap
+ permit udp 0.0.0.0 255.255.255.224 172.23.84.128 0.0.0.63 eq snmptrap
+ permit udp 0.0.0.0 255.255.255.224 86.51.237.128 0.0.0.127 eq snmptrap
+ permit udp 0.0.0.0 255.255.255.224 10.63.95.0 0.0.0.255 eq snmptrap
+ permit udp 0.0.0.0 255.255.255.224 173.200.231.64 0.0.0.63 eq snmptrap
+ permit udp 0.0.0.0 255.255.255.224 173.200.40.0 0.0.0.63 eq snmptrap
+ permit udp 0.0.0.0 255.255.255.224 173.202.51.192 0.0.0.63 eq snmptrap
+ permit udp 0.0.0.0 255.255.255.224 173.200.175.0 0.0.0.63 eq snmptrap
+ permit tcp 0.0.0.0 255.255.255.224 range 1019 1023 169.168.251.128 0.0.0.127
+ permit tcp 0.0.0.0 255.255.255.224 range 1019 1023 91.118.190.0 0.0.0.63
+ permit tcp 0.0.0.0 255.255.255.224 range 1019 1023 91.118.125.0 0.0.0.127
+ permit tcp 0.0.0.0 255.255.255.224 range 1019 1023 91.124.25.0 0.0.0.127
+ permit tcp 0.0.0.0 255.255.255.224 range 1019 1023 156.6.106.128 0.0.0.127
+ permit tcp 0.0.0.0 255.255.255.224 range 1019 1023 169.170.51.0 0.0.0.255
+ permit tcp 0.0.0.0 255.255.255.224 range 1019 1023 91.118.4.192 0.0.0.63
+ permit tcp 0.0.0.0 255.255.255.224 range 1019 1023 91.127.45.192 0.0.0.63
+ permit tcp 0.0.0.0 255.255.255.224 range 1019 1023 91.125.229.192 0.0.0.63
+ permit tcp 0.0.0.0 255.255.255.224 range 1019 1023 165.4.29.128 0.0.0.127
+ permit tcp 0.0.0.0 255.255.255.224 range 1019 1023 165.4.243.0 0.0.0.127
+ permit tcp 0.0.0.0 255.255.255.224 range 1019 1023 156.6.34.224 0.0.0.31
+ permit tcp 0.0.0.0 255.255.255.224 range 1019 1023 156.6.20.128 0.0.0.127
+ permit tcp 0.0.0.0 255.255.255.224 range 1019 1023 91.118.238.0 0.0.0.127
+ permit tcp 0.0.0.0 255.255.255.224 range 1019 1023 91.118.55.0 0.0.0.127
+ permit tcp 0.0.0.0 255.255.255.224 range 1019 1023 91.118.192.128 0.0.0.127
+ permit tcp 0.0.0.0 255.255.255.224 range 1019 1023 172.23.84.128 0.0.0.63
+ permit tcp 0.0.0.0 255.255.255.224 range 1019 1023 86.51.237.128 0.0.0.127
+ permit tcp 0.0.0.0 255.255.255.224 range 1019 1023 10.63.95.0 0.0.0.255
+ permit tcp 0.0.0.0 255.255.255.224 range 1019 1023 173.200.231.64 0.0.0.63
+ permit tcp 0.0.0.0 255.255.255.224 range 1019 1023 173.200.40.0 0.0.0.63
+ permit tcp 0.0.0.0 255.255.255.224 range 1019 1023 173.202.51.192 0.0.0.63
+ permit tcp 0.0.0.0 255.255.255.224 range 1019 1023 173.200.175.0 0.0.0.63
+ permit tcp 0.0.0.0 255.255.255.224 eq exec 169.168.251.128 0.0.0.127
+ permit tcp 0.0.0.0 255.255.255.224 eq exec 91.118.190.0 0.0.0.63
+ permit tcp 0.0.0.0 255.255.255.224 eq exec 91.118.125.0 0.0.0.127
+ permit tcp 0.0.0.0 255.255.255.224 eq exec 91.124.25.0 0.0.0.127
+ permit tcp 0.0.0.0 255.255.255.224 eq exec 156.6.106.128 0.0.0.127
+ permit tcp 0.0.0.0 255.255.255.224 eq exec 169.170.51.0 0.0.0.255
+ permit tcp 0.0.0.0 255.255.255.224 eq exec 91.118.4.192 0.0.0.63
+ permit tcp 0.0.0.0 255.255.255.224 eq exec 91.127.45.192 0.0.0.63
+ permit tcp 0.0.0.0 255.255.255.224 eq exec 91.125.229.192 0.0.0.63
+ permit tcp 0.0.0.0 255.255.255.224 eq exec 165.4.29.128 0.0.0.127
+ permit tcp 0.0.0.0 255.255.255.224 eq exec 165.4.243.0 0.0.0.127
+ permit tcp 0.0.0.0 255.255.255.224 eq exec 156.6.34.224 0.0.0.31
+ permit tcp 0.0.0.0 255.255.255.224 eq exec 156.6.20.128 0.0.0.127
+ permit tcp 0.0.0.0 255.255.255.224 eq exec 91.118.238.0 0.0.0.127
+ permit tcp 0.0.0.0 255.255.255.224 eq exec 91.118.55.0 0.0.0.127
+ permit tcp 0.0.0.0 255.255.255.224 eq exec 91.118.192.128 0.0.0.127
+ permit tcp 0.0.0.0 255.255.255.224 eq exec 172.23.84.128 0.0.0.63
+ permit tcp 0.0.0.0 255.255.255.224 eq exec 86.51.237.128 0.0.0.127
+ permit tcp 0.0.0.0 255.255.255.224 eq exec 10.63.95.0 0.0.0.255
+ permit tcp 0.0.0.0 255.255.255.224 eq exec 173.200.231.64 0.0.0.63
+ permit tcp 0.0.0.0 255.255.255.224 eq exec 173.200.40.0 0.0.0.63
+ permit tcp 0.0.0.0 255.255.255.224 eq exec 173.202.51.192 0.0.0.63
+ permit tcp 0.0.0.0 255.255.255.224 eq exec 173.200.175.0 0.0.0.63
+ permit udp 0.0.0.0 255.255.255.224 host 91.118.192.214 eq domain
+ permit udp 0.0.0.0 255.255.255.224 host 91.118.238.17 eq domain
+ permit udp 0.0.0.0 255.255.255.224 host 86.51.237.126 eq domain
+ permit udp 0.0.0.0 255.255.255.224 host 169.170.51.240 eq domain
+ permit udp 0.0.0.0 255.255.255.224 host 169.168.251.145 eq domain
+ permit udp 0.0.0.0 255.255.255.224 host 91.124.25.108 eq domain
+ permit udp 0.0.0.0 255.255.255.224 host 169.169.118.169 eq domain
+ permit udp 0.0.0.0 255.255.255.224 host 91.124.217.92 eq domain
+ permit udp 0.0.0.0 255.255.255.224 host 156.6.106.136 eq domain
+ permit udp 0.0.0.0 255.255.255.224 host 91.118.190.53 eq domain
+ permit udp 0.0.0.0 255.255.255.224 host 91.118.125.80 eq domain
+ permit udp 0.0.0.0 255.255.255.224 host 10.52.223.48 eq ntp
+ permit udp 0.0.0.0 255.255.255.224 host 10.52.223.93 eq ntp
+ permit udp 0.0.0.0 255.255.255.224 host 91.125.137.119 eq ntp
+ permit udp 0.0.0.0 255.255.255.224 host 91.125.137.118 eq ntp
+ permit udp 0.0.0.0 255.255.255.224 host 156.6.19.65 eq ntp
+ permit udp 0.0.0.0 255.255.255.224 host 156.6.19.66 eq ntp
+ permit udp 0.0.0.0 255.255.255.224 host 91.118.101.203 eq ntp
+ permit udp 0.0.0.0 255.255.255.224 host 91.118.112.31 eq ntp
+ permit udp 0.0.0.0 255.255.255.224 host 169.170.51.251 eq syslog
+ permit udp 0.0.0.0 255.255.255.224 host 91.124.25.99 eq syslog
+ permit udp 0.0.0.0 255.255.255.224 host 91.118.125.83 eq syslog
+ permit udp 0.0.0.0 255.255.255.224 10.63.95.0 0.0.0.255 eq syslog
+ permit udp 0.0.0.0 255.255.255.224 eq syslog 10.63.95.0 0.0.0.255
+ permit udp 0.0.0.0 255.255.255.224 host 91.118.190.55 eq syslog
+ permit udp 0.0.0.0 255.255.255.224 host 91.118.238.29 eq syslog
+ permit udp 0.0.0.0 255.255.255.224 host 156.6.20.231 eq syslog
+ permit udp 0.0.0.0 255.255.255.224 host 91.118.192.212 eq syslog
+ permit udp 0.0.0.0 255.255.255.224 host 165.4.243.40 eq syslog
+ permit udp 0.0.0.0 255.255.255.224 host 169.168.251.146 eq syslog
+ permit udp 0.0.0.0 255.255.255.224 host 86.51.237.103 eq syslog
+ permit udp 0.0.0.0 255.255.255.224 host 173.200.40.57 eq syslog
+ permit udp 0.0.0.0 255.255.255.224 host 86.51.51.116 eq syslog
+ permit udp 0.0.0.0 255.255.255.224 host 91.126.16.176 eq syslog
+ permit udp 0.0.0.0 255.255.255.224 host 169.168.40.225 eq syslog
+ permit udp 0.0.0.0 255.255.255.224 host 86.51.160.36 eq syslog
+ permit udp 0.0.0.0 255.255.255.224 host 156.6.103.209 eq syslog
+ permit tcp 0.0.0.0 255.255.255.224 host 156.6.106.200 eq tacacs
+ permit tcp 0.0.0.0 255.255.255.224 host 86.51.237.102 eq tacacs
+ permit tcp 0.0.0.0 255.255.255.224 host 173.202.49.143 eq tacacs
+ permit tcp 0.0.0.0 255.255.255.224 host 173.202.49.141 eq tacacs
+ permit tcp 0.0.0.0 255.255.255.224 host 173.202.49.140 eq tacacs
+ permit tcp 0.0.0.0 255.255.255.224 host 173.201.120.151 eq tacacs
+ permit tcp 0.0.0.0 255.255.255.224 host 173.201.120.227 eq tacacs
+ permit tcp 0.0.0.0 255.255.255.224 host 173.201.120.150 eq tacacs
+ permit tcp 0.0.0.0 255.255.255.224 host 86.51.237.78 eq tacacs
+ permit tcp 0.0.0.0 255.255.255.224 host 86.51.237.76 eq tacacs
+ permit tcp 0.0.0.0 255.255.255.224 host 86.51.237.77 eq tacacs
+ permit tcp 0.0.0.0 255.255.255.224 host 165.4.247.26 eq tacacs
+ permit tcp 0.0.0.0 255.255.255.224 host 165.4.247.17 eq tacacs
+ permit tcp 0.0.0.0 255.255.255.224 host 165.4.247.28 eq tacacs
+ permit tcp 0.0.0.0 255.255.255.224 host 91.118.192.114 eq tacacs
+ permit tcp 0.0.0.0 255.255.255.224 host 91.118.192.120 eq tacacs
+ permit tcp 0.0.0.0 255.255.255.224 host 91.118.192.112 eq tacacs
+ permit tcp 0.0.0.0 255.255.255.224 host 169.168.50.207 eq tacacs
+ permit tcp 0.0.0.0 255.255.255.224 host 169.168.50.3 eq tacacs
+ permit tcp 0.0.0.0 255.255.255.224 host 169.168.50.195 eq tacacs
+ permit tcp 0.0.0.0 255.255.255.224 host 86.51.50.132 eq tacacs
+ permit tcp 0.0.0.0 255.255.255.224 host 86.51.51.80 eq tacacs
+ permit tcp 0.0.0.0 255.255.255.224 host 86.51.50.129 eq tacacs
+ permit tcp 0.0.0.0 255.255.255.224 host 173.203.158.110 eq tacacs
+ permit tcp 0.0.0.0 255.255.255.224 host 173.203.158.105 eq tacacs
+ permit tcp 0.0.0.0 255.255.255.224 host 173.203.158.109 eq tacacs
+ permit tcp 0.0.0.0 255.255.255.224 host 169.170.51.110 eq tacacs
+ permit tcp 0.0.0.0 255.255.255.224 host 169.170.51.119 eq tacacs
+ permit tcp 0.0.0.0 255.255.255.224 host 169.170.51.111 eq tacacs
+ permit tcp 0.0.0.0 255.255.255.224 host 91.118.112.223 eq tacacs
+ permit tcp 0.0.0.0 255.255.255.224 host 91.118.112.222 eq tacacs
+ permit tcp 0.0.0.0 255.255.255.224 host 91.118.112.224 eq tacacs
+ permit tcp 0.0.0.0 255.255.255.224 host 91.118.178.249 eq tacacs
+ permit tcp 0.0.0.0 255.255.255.224 host 91.118.178.241 eq tacacs
+ permit tcp 0.0.0.0 255.255.255.224 host 91.118.178.250 eq tacacs
+ permit udp 0.0.0.0 255.255.255.224 host 169.168.35.206 eq ntp
+ permit udp 0.0.0.0 255.255.255.224 host 169.168.35.205 eq ntp
+ permit udp 0.0.0.0 255.255.255.224 host 86.51.58.76 eq ntp
+ permit udp 0.0.0.0 255.255.255.224 host 173.200.230.48 eq ntp
+ permit udp 0.0.0.0 255.255.255.224 host 156.6.146.160 eq ntp
+ permit udp 0.0.0.0 255.255.255.224 host 156.6.146.161 eq ntp
+ permit udp 0.0.0.0 255.255.255.224 host 156.6.19.115 eq ntp
+ permit udp 0.0.0.0 255.255.255.224 host 156.6.19.126 eq ntp
+ permit udp 0.0.0.0 255.255.255.224 host 10.119.239.8 eq ntp
+ permit udp 0.0.0.0 255.255.255.224 host 10.39.9.182 eq ntp
+ permit udp 0.0.0.0 255.255.255.224 host 10.39.9.183 eq ntp
+ permit udp 0.0.0.0 255.255.255.224 host 10.37.70.216 eq ntp
+ permit udp 0.0.0.0 255.255.255.224 host 10.37.70.217 eq ntp
+ permit udp 0.0.0.0 255.255.255.224 host 130.143.104.103 eq domain
+ permit udp 0.0.0.0 255.255.255.224 host 156.6.20.229 eq domain
+ permit udp 0.0.0.0 255.255.255.224 host 165.4.243.35 eq domain
+ permit udp 0.0.0.0 255.255.255.224 host 173.201.126.101 eq domain
+ permit udp 0.0.0.0 255.255.255.224 host 173.201.126.157 eq domain
+ permit udp 0.0.0.0 255.255.255.224 host 173.200.231.107 eq domain
+ permit udp 0.0.0.0 255.255.255.224 host 173.200.225.73 eq domain
+ permit udp 0.0.0.0 255.255.255.224 host 173.200.40.27 eq domain
+ permit udp 0.0.0.0 255.255.255.224 host 173.202.171.234 eq domain
+ permit udp 0.0.0.0 255.255.255.224 host 173.202.51.236 eq domain
+ permit udp 0.0.0.0 255.255.255.224 host 173.202.152.60 eq domain
+ permit udp 0.0.0.0 255.255.255.224 host 91.127.45.195 eq domain
+ permit udp 0.0.0.0 255.255.255.224 host 91.125.229.202 eq domain
+ permit udp 0.0.0.0 255.255.255.224 host 86.51.53.77 eq domain
+ permit udp 0.0.0.0 255.255.255.224 host 169.168.1.147 eq ntp
+ permit udp 0.0.0.0 255.255.255.224 host 169.168.1.140 eq ntp
+ permit udp 0.0.0.0 255.255.255.224 host 169.168.1.141 eq ntp
+ permit udp 0.0.0.0 255.255.255.224 host 169.168.1.106 eq ntp
+ permit udp 0.0.0.0 255.255.255.224 host 173.202.50.71 eq ntp
+ permit udp 0.0.0.0 255.255.255.224 host 173.202.50.118 eq ntp
+ permit udp 0.0.0.0 255.255.255.224 host 213.72.6.143 eq ntp
+ permit udp 0.0.0.0 255.255.255.224 host 91.124.25.17 eq ntp
+ permit udp 0.0.0.0 255.255.255.224 host 91.124.25.16 eq ntp
+ permit udp 0.0.0.0 255.255.255.224 156.6.106.0 0.0.0.255 eq snmptrap
+ permit udp 0.0.0.0 255.255.255.224 173.201.126.128 0.0.0.63 eq snmptrap
+ permit udp 0.0.0.0 255.255.255.224 173.201.197.128 0.0.0.63 eq snmptrap
+ permit udp 0.0.0.0 255.255.255.224 173.200.15.128 0.0.0.63 eq snmptrap
+ permit udp 0.0.0.0 255.255.255.224 173.200.55.128 0.0.0.31 eq snmptrap
+ permit udp 0.0.0.0 255.255.255.224 173.202.171.192 0.0.0.63 eq snmptrap
+ permit udp 0.0.0.0 255.255.255.224 173.202.152.0 0.0.0.63 eq snmptrap
+ permit udp 0.0.0.0 255.255.255.224 86.51.36.192 0.0.0.63 eq snmptrap
+ permit tcp 0.0.0.0 255.255.255.224 host 169.170.51.221 eq ftp
+ permit tcp 0.0.0.0 255.255.255.224 host 169.170.51.236 eq ftp-data
+ permit tcp 0.0.0.0 255.255.255.224 host 173.200.40.50 eq ftp
+ permit tcp 0.0.0.0 255.255.255.224 host 173.200.40.50 eq ftp-data
+ permit tcp 0.0.0.0 255.255.255.224 host 169.170.51.221 eq ftp-data
+ permit tcp 0.0.0.0 255.255.255.224 host 169.170.51.236 eq ftp
+ permit tcp 0.0.0.0 255.255.255.224 host 173.200.40.17 range 900 1023
+ permit tcp 0.0.0.0 255.255.255.224 host 173.200.40.37 range 900 1023
+ permit tcp 0.0.0.0 255.255.255.224 host 91.124.25.26 range 900 1023
+ permit tcp 0.0.0.0 255.255.255.224 host 173.200.231.104 range 900 1023
+ permit tcp 0.0.0.0 255.255.255.224 host 173.200.231.78 range 900 1023
+ permit tcp 0.0.0.0 255.255.255.224 eq exec host 173.200.40.17
+ permit tcp 0.0.0.0 255.255.255.224 eq exec host 173.200.40.37
+ permit tcp 0.0.0.0 255.255.255.224 eq exec host 91.124.25.26
+ permit tcp 0.0.0.0 255.255.255.224 eq exec host 173.200.231.104
+ permit tcp 0.0.0.0 255.255.255.224 eq exec host 173.200.231.78
+ permit udp 0.0.0.0 255.255.255.224 host 173.200.40.17 eq tftp
+ permit udp 0.0.0.0 255.255.255.224 host 173.200.40.37 eq tftp
+ permit udp 0.0.0.0 255.255.255.224 host 91.124.25.26 eq tftp
+ permit udp 0.0.0.0 255.255.255.224 host 173.200.231.104 eq tftp
+ permit udp 0.0.0.0 255.255.255.224 host 173.200.231.78 eq tftp
+ permit tcp 0.0.0.0 255.255.255.224 host 10.52.222.184 eq bgp
+ permit tcp 0.0.0.0 255.255.255.224 host 172.19.135.193 eq bgp
+ permit tcp 0.0.0.0 255.255.255.224 host 10.39.7.85 eq bgp
+ permit tcp 0.0.0.0 255.255.255.224 host 130.143.119.124 eq www
+ permit tcp 0.0.0.0 255.255.255.224 host 130.143.119.99 eq www
+ permit tcp 0.0.0.0 255.255.255.224 host 130.143.119.124 eq 443
+ permit tcp 0.0.0.0 255.255.255.224 host 130.143.119.99 eq 443
+ permit tcp 0.0.0.0 255.255.255.224 host 173.200.254.192 eq www
+ permit tcp 0.0.0.0 255.255.255.224 host 86.51.26.84 eq www
+ permit tcp 0.0.0.0 255.255.255.224 host 173.200.254.192 eq 443
+ permit tcp 0.0.0.0 255.255.255.224 host 86.51.26.84 eq 443
+ permit tcp 0.0.0.0 255.255.255.224 host 130.143.119.94 eq www
+ permit tcp 0.0.0.0 255.255.255.224 host 130.143.119.94 eq 443
+ permit tcp 0.0.0.0 255.255.255.224 host 130.143.119.71 eq www
+ permit tcp 0.0.0.0 255.255.255.224 host 130.143.119.71 eq 443
+ permit tcp 0.0.0.0 255.255.255.224 host 86.51.26.92 eq www
+ permit tcp 0.0.0.0 255.255.255.224 host 86.51.26.92 eq 443
+ permit tcp 0.0.0.0 255.255.255.224 host 173.200.254.193 eq www
+ permit tcp 0.0.0.0 255.255.255.224 host 173.200.254.193 eq 443
+ permit udp 0.0.0.0 255.255.255.224 169.171.194.0 0.0.0.63
+ permit icmp 0.0.0.0 255.255.255.224 169.171.194.0 0.0.0.63
+ permit udp 0.0.0.0 255.255.255.224 91.124.16.32 0.0.0.31
+ permit icmp 0.0.0.0 255.255.255.224 91.124.16.32 0.0.0.31
+ permit udp 0.0.0.0 255.255.255.224 91.118.14.128 0.0.0.15
+ permit icmp 0.0.0.0 255.255.255.224 91.118.14.128 0.0.0.15
+ permit udp 0.0.0.0 255.255.255.224 91.118.125.208 0.0.0.15
+ permit icmp 0.0.0.0 255.255.255.224 91.118.125.208 0.0.0.15
+ permit udp 0.0.0.0 255.255.255.224 156.6.172.32 0.0.0.31
+ permit icmp 0.0.0.0 255.255.255.224 156.6.172.32 0.0.0.31
+ permit udp 0.0.0.0 255.255.255.224 173.200.38.128 0.0.0.63
+ permit icmp 0.0.0.0 255.255.255.224 173.200.38.128 0.0.0.63
+ permit udp 0.0.0.0 255.255.255.224 173.200.22.0 0.0.0.63
+ permit icmp 0.0.0.0 255.255.255.224 173.200.22.0 0.0.0.63
+ permit udp 0.0.0.0 255.255.255.224 91.118.195.144 0.0.0.7
+ permit icmp 0.0.0.0 255.255.255.224 91.118.195.144 0.0.0.7
+ permit udp 0.0.0.0 255.255.255.224 host 156.6.103.95 eq syslog
+ permit udp 0.0.0.0 255.255.255.224 host 86.51.160.64 eq syslog
+ permit udp 0.0.0.0 255.255.255.224 host 173.200.4.26 eq syslog
+ permit udp 0.0.0.0 255.255.255.224 host 91.126.9.87 eq syslog
+ permit esp 0.0.0.0 255.255.255.224 host 156.6.172.111
+ permit udp 0.0.0.0 255.255.255.224 host 156.6.172.111 eq 10000
+ permit udp 0.0.0.0 255.255.255.224 host 156.6.172.111 eq isakmp
+ permit esp 0.0.0.0 255.255.255.224 host 156.6.172.108
+ permit udp 0.0.0.0 255.255.255.224 host 156.6.172.108 eq 10000
+ permit udp 0.0.0.0 255.255.255.224 host 156.6.172.108 eq isakmp
+ permit esp 0.0.0.0 255.255.255.224 host 156.6.172.109
+ permit udp 0.0.0.0 255.255.255.224 host 156.6.172.109 eq 10000
+ permit udp 0.0.0.0 255.255.255.224 host 156.6.172.109 eq isakmp
+ permit esp 0.0.0.0 255.255.255.224 host 156.6.172.102
+ permit udp 0.0.0.0 255.255.255.224 host 156.6.172.102 eq 10000
+ permit udp 0.0.0.0 255.255.255.224 host 156.6.172.102 eq isakmp
+ permit esp 0.0.0.0 255.255.255.224 host 91.124.219.137
+ permit udp 0.0.0.0 255.255.255.224 host 91.124.219.137 eq 10000
+ permit udp 0.0.0.0 255.255.255.224 host 91.124.219.137 eq isakmp
+ permit esp 0.0.0.0 255.255.255.224 host 91.124.219.141
+ permit udp 0.0.0.0 255.255.255.224 host 91.124.219.141 eq 10000
+ permit udp 0.0.0.0 255.255.255.224 host 91.124.219.141 eq isakmp
+ permit esp 0.0.0.0 255.255.255.224 host 91.124.219.136
+ permit udp 0.0.0.0 255.255.255.224 host 91.124.219.136 eq 10000
+ permit udp 0.0.0.0 255.255.255.224 host 91.124.219.136 eq isakmp
+ permit esp 0.0.0.0 255.255.255.224 host 169.170.119.149
+ permit udp 0.0.0.0 255.255.255.224 host 169.170.119.149 eq 10000
+ permit udp 0.0.0.0 255.255.255.224 host 169.170.119.149 eq isakmp
+ permit esp 0.0.0.0 255.255.255.224 host 169.170.119.159
+ permit udp 0.0.0.0 255.255.255.224 host 169.170.119.159 eq 10000
+ permit udp 0.0.0.0 255.255.255.224 host 169.170.119.159 eq isakmp
+ permit esp 0.0.0.0 255.255.255.224 host 169.170.119.148
+ permit udp 0.0.0.0 255.255.255.224 host 169.170.119.148 eq 10000
+ permit udp 0.0.0.0 255.255.255.224 host 169.170.119.148 eq isakmp
+ permit esp 0.0.0.0 255.255.255.224 host 91.118.113.144
+ permit udp 0.0.0.0 255.255.255.224 host 91.118.113.144 eq 10000
+ permit udp 0.0.0.0 255.255.255.224 host 91.118.113.144 eq isakmp
+ permit esp 0.0.0.0 255.255.255.224 host 91.118.190.103
+ permit udp 0.0.0.0 255.255.255.224 host 91.118.190.103 eq 10000
+ permit udp 0.0.0.0 255.255.255.224 host 91.118.190.103 eq isakmp
+ permit esp 0.0.0.0 255.255.255.224 host 91.118.190.101
+ permit udp 0.0.0.0 255.255.255.224 host 91.118.190.101 eq 10000
+ permit udp 0.0.0.0 255.255.255.224 host 91.118.190.101 eq isakmp
+ permit esp 0.0.0.0 255.255.255.224 host 91.118.190.100
+ permit udp 0.0.0.0 255.255.255.224 host 91.118.190.100 eq 10000
+ permit udp 0.0.0.0 255.255.255.224 host 91.118.190.100 eq isakmp
+ permit esp 0.0.0.0 255.255.255.224 host 91.118.242.82
+ permit udp 0.0.0.0 255.255.255.224 host 91.118.242.82 eq isakmp
+ permit udp 0.0.0.0 255.255.255.224 host 91.118.242.82 eq 10000
+ permit esp 0.0.0.0 255.255.255.224 host 91.118.242.80
+ permit udp 0.0.0.0 255.255.255.224 host 91.118.242.80 eq isakmp
+ permit udp 0.0.0.0 255.255.255.224 host 91.118.242.80 eq 10000
+ permit esp 0.0.0.0 255.255.255.224 host 91.118.192.86
+ permit udp 0.0.0.0 255.255.255.224 host 91.118.192.86 eq isakmp
+ permit udp 0.0.0.0 255.255.255.224 host 91.118.192.86 eq 10000
+ permit esp 0.0.0.0 255.255.255.224 host 91.118.192.87
+ permit udp 0.0.0.0 255.255.255.224 host 91.118.192.87 eq isakmp
+ permit udp 0.0.0.0 255.255.255.224 host 91.118.192.87 eq 10000
+ permit esp 0.0.0.0 255.255.255.224 host 91.118.192.84
+ permit udp 0.0.0.0 255.255.255.224 host 91.118.192.84 eq isakmp
+ permit udp 0.0.0.0 255.255.255.224 host 91.118.192.84 eq 10000
+ permit esp 0.0.0.0 255.255.255.224 host 86.51.166.140
+ permit udp 0.0.0.0 255.255.255.224 host 86.51.166.140 eq isakmp
+ permit udp 0.0.0.0 255.255.255.224 host 86.51.166.140 eq 10000
+ permit esp 0.0.0.0 255.255.255.224 host 86.51.166.142
+ permit udp 0.0.0.0 255.255.255.224 host 86.51.166.142 eq isakmp
+ permit udp 0.0.0.0 255.255.255.224 host 86.51.166.142 eq 10000
+ permit esp 0.0.0.0 255.255.255.224 host 86.51.166.143
+ permit udp 0.0.0.0 255.255.255.224 host 86.51.166.143 eq isakmp
+ permit udp 0.0.0.0 255.255.255.224 host 86.51.166.143 eq 10000
+ permit esp 0.0.0.0 255.255.255.224 host 86.51.166.132
+ permit udp 0.0.0.0 255.255.255.224 host 86.51.166.132 eq isakmp
+ permit udp 0.0.0.0 255.255.255.224 host 86.51.166.132 eq 10000
+ permit esp 0.0.0.0 255.255.255.224 host 86.51.166.133
+ permit udp 0.0.0.0 255.255.255.224 host 86.51.166.133 eq isakmp
+ permit udp 0.0.0.0 255.255.255.224 host 86.51.166.133 eq 10000
+ permit esp 0.0.0.0 255.255.255.224 host 86.51.166.134
+ permit udp 0.0.0.0 255.255.255.224 host 86.51.166.134 eq isakmp
+ permit udp 0.0.0.0 255.255.255.224 host 86.51.166.134 eq 10000
+ permit esp 0.0.0.0 255.255.255.224 host 86.51.166.135
+ permit udp 0.0.0.0 255.255.255.224 host 86.51.166.135 eq isakmp
+ permit udp 0.0.0.0 255.255.255.224 host 86.51.166.135 eq 10000
+ permit tcp 0.0.0.0 255.255.255.224 host 156.6.102.28 eq smtp
+ permit tcp 0.0.0.0 255.255.255.224 host 169.168.56.239 eq smtp
+ permit tcp 0.0.0.0 255.255.255.224 host 173.201.120.82 eq smtp
+ permit tcp 0.0.0.0 255.255.255.224 host 173.200.36.221 eq smtp
+ permit tcp 0.0.0.0 255.255.255.224 host 86.51.165.142 eq smtp
+ permit tcp 0.0.0.0 255.255.255.224 host 156.6.102.28 eq 465
+ permit tcp 0.0.0.0 255.255.255.224 host 169.168.56.239 eq 465
+ permit tcp 0.0.0.0 255.255.255.224 host 173.201.120.82 eq 465
+ permit tcp 0.0.0.0 255.255.255.224 host 173.200.36.221 eq 465
+ permit tcp 0.0.0.0 255.255.255.224 host 86.51.165.142 eq 465
+ permit tcp 0.0.0.0 255.255.255.224 host 169.168.56.225 eq smtp
+ permit tcp 0.0.0.0 255.255.255.224 host 169.168.56.225 eq 465
+ permit tcp 0.0.0.0 255.255.255.224 host 169.168.56.224 eq smtp
+ permit tcp 0.0.0.0 255.255.255.224 host 169.168.56.224 eq 465
+ permit tcp 0.0.0.0 255.255.255.224 host 169.168.56.237 eq smtp
+ permit tcp 0.0.0.0 255.255.255.224 host 169.168.56.237 eq 465
+ permit tcp 0.0.0.0 255.255.255.224 host 169.168.56.236 eq smtp
+ permit tcp 0.0.0.0 255.255.255.224 host 169.168.56.236 eq 465
+ permit tcp 0.0.0.0 255.255.255.224 host 173.200.36.255 eq smtp
+ permit tcp 0.0.0.0 255.255.255.224 host 173.200.36.255 eq 465
+ permit tcp 0.0.0.0 255.255.255.224 host 173.200.36.254 eq smtp
+ permit tcp 0.0.0.0 255.255.255.224 host 173.200.36.254 eq 465
+ permit tcp 0.0.0.0 255.255.255.224 host 173.200.36.252 eq smtp
+ permit tcp 0.0.0.0 255.255.255.224 host 173.200.36.252 eq 465
+ permit tcp 0.0.0.0 255.255.255.224 host 173.200.36.253 eq smtp
+ permit tcp 0.0.0.0 255.255.255.224 host 173.200.36.253 eq 465
+ permit tcp 0.0.0.0 255.255.255.224 host 173.200.36.248 eq smtp
+ permit tcp 0.0.0.0 255.255.255.224 host 173.200.36.248 eq 465
+ permit tcp 0.0.0.0 255.255.255.224 host 173.200.36.249 eq smtp
+ permit tcp 0.0.0.0 255.255.255.224 host 173.200.36.249 eq 465
+ permit tcp 0.0.0.0 255.255.255.224 host 173.200.4.19 eq smtp
+ permit tcp 0.0.0.0 255.255.255.224 host 173.200.4.19 eq 465
+ permit tcp 0.0.0.0 255.255.255.224 host 173.200.4.77 eq smtp
+ permit tcp 0.0.0.0 255.255.255.224 host 173.200.4.77 eq 465
+ permit tcp 0.0.0.0 255.255.255.224 host 173.200.4.76 eq smtp
+ permit tcp 0.0.0.0 255.255.255.224 host 173.200.4.76 eq 465
+ permit tcp 0.0.0.0 255.255.255.224 host 173.200.4.78 eq smtp
+ permit tcp 0.0.0.0 255.255.255.224 host 173.200.4.78 eq 465
+ permit tcp 0.0.0.0 255.255.255.224 host 173.200.4.79 eq smtp
+ permit tcp 0.0.0.0 255.255.255.224 host 173.200.4.79 eq 465
+ permit tcp 0.0.0.0 255.255.255.224 host 173.200.4.17 eq smtp
+ permit tcp 0.0.0.0 255.255.255.224 host 173.200.4.17 eq 465
+ permit tcp 0.0.0.0 255.255.255.224 host 173.200.4.16 eq smtp
+ permit tcp 0.0.0.0 255.255.255.224 host 173.200.4.16 eq 465
+ permit tcp 0.0.0.0 255.255.255.224 host 156.6.102.29 eq smtp
+ permit tcp 0.0.0.0 255.255.255.224 host 156.6.102.29 eq 465
+ permit tcp 0.0.0.0 255.255.255.224 host 156.6.102.6 eq smtp
+ permit tcp 0.0.0.0 255.255.255.224 host 156.6.102.6 eq 465
+ permit tcp 0.0.0.0 255.255.255.224 host 156.6.102.3 eq smtp
+ permit tcp 0.0.0.0 255.255.255.224 host 156.6.102.3 eq 465
+ permit tcp 0.0.0.0 255.255.255.224 host 156.6.102.2 eq smtp
+ permit tcp 0.0.0.0 255.255.255.224 host 156.6.102.2 eq 465
+ permit tcp 0.0.0.0 255.255.255.224 host 86.51.165.139 eq smtp
+ permit tcp 0.0.0.0 255.255.255.224 host 86.51.165.139 eq 465
+ permit tcp 0.0.0.0 255.255.255.224 host 86.51.165.138 eq smtp
+ permit tcp 0.0.0.0 255.255.255.224 host 86.51.165.138 eq 465
+ permit tcp 0.0.0.0 255.255.255.224 host 86.51.165.136 eq smtp
+ permit tcp 0.0.0.0 255.255.255.224 host 86.51.165.136 eq 465
+ permit tcp 0.0.0.0 255.255.255.224 host 86.51.165.137 eq smtp
+ permit tcp 0.0.0.0 255.255.255.224 host 86.51.165.137 eq 465
+ permit tcp 0.0.0.0 255.255.255.224 host 173.201.121.167 eq 443
+ permit tcp 0.0.0.0 255.255.255.224 host 173.200.210.46 eq 443
+ permit tcp 0.0.0.0 255.255.255.224 host 173.201.121.167 eq 995
+ permit tcp 0.0.0.0 255.255.255.224 host 173.200.210.46 eq 995
+ permit tcp 0.0.0.0 255.255.255.224 host 173.201.121.167 eq 993
+ permit tcp 0.0.0.0 255.255.255.224 host 173.200.210.46 eq 993
+ permit tcp 0.0.0.0 255.255.255.224 host 173.202.209.69 eq 443
+ permit tcp 0.0.0.0 255.255.255.224 host 173.202.209.69 eq 995
+ permit tcp 0.0.0.0 255.255.255.224 host 173.202.209.69 eq 993
+ permit tcp 0.0.0.0 255.255.255.224 host 86.51.51.130 eq 443
+ permit tcp 0.0.0.0 255.255.255.224 host 173.200.36.226 eq smtp
+ permit tcp 0.0.0.0 255.255.255.224 host 173.200.36.226 eq 465
+ permit tcp 0.0.0.0 255.255.255.224 host 173.200.36.243 eq smtp
+ permit tcp 0.0.0.0 255.255.255.224 host 173.200.36.243 eq 465
+ permit tcp 0.0.0.0 255.255.255.224 host 173.200.36.242 eq smtp
+ permit tcp 0.0.0.0 255.255.255.224 host 173.200.36.242 eq 465
+ permit tcp 0.0.0.0 255.255.255.224 host 173.200.36.241 eq smtp
+ permit tcp 0.0.0.0 255.255.255.224 host 173.200.36.241 eq 465
+ permit tcp 0.0.0.0 255.255.255.224 host 173.200.36.240 eq smtp
+ permit tcp 0.0.0.0 255.255.255.224 host 173.200.36.240 eq 465
+ permit tcp 0.0.0.0 255.255.255.224 host 173.200.36.247 eq smtp
+ permit tcp 0.0.0.0 255.255.255.224 host 173.200.36.247 eq 465
+ permit tcp 0.0.0.0 255.255.255.224 host 173.202.49.181 eq smtp
+ permit tcp 0.0.0.0 255.255.255.224 host 173.202.49.181 eq 465
+ permit tcp 0.0.0.0 255.255.255.224 host 173.202.49.158 eq smtp
+ permit tcp 0.0.0.0 255.255.255.224 host 173.202.49.158 eq 465
+ permit tcp 0.0.0.0 255.255.255.224 host 173.202.49.159 eq smtp
+ permit tcp 0.0.0.0 255.255.255.224 host 173.202.49.159 eq 465
+ permit tcp 0.0.0.0 255.255.255.224 host 173.202.49.130 eq smtp
+ permit tcp 0.0.0.0 255.255.255.224 host 173.202.49.130 eq 465
+ permit tcp 0.0.0.0 255.255.255.224 host 173.202.49.131 eq smtp
+ permit tcp 0.0.0.0 255.255.255.224 host 173.202.49.131 eq 465
+ permit tcp 0.0.0.0 255.255.255.224 host 86.51.51.209 eq www
+ permit tcp 0.0.0.0 255.255.255.224 host 86.51.51.209 eq 443
+ permit tcp 0.0.0.0 255.255.255.224 host 173.201.120.63 eq www
+ permit tcp 0.0.0.0 255.255.255.224 host 173.201.120.63 eq 443
+ permit tcp 0.0.0.0 255.255.255.224 host 173.200.13.35 eq www
+ permit tcp 0.0.0.0 255.255.255.224 host 173.200.13.35 eq 443
+ permit tcp 0.0.0.0 255.255.255.224 host 173.200.13.35 eq 2222
+ permit tcp 0.0.0.0 255.255.255.224 host 173.200.13.35 eq 3333
+ permit tcp 0.0.0.0 255.255.255.224 host 173.200.13.35 eq 4444
+ permit tcp 0.0.0.0 255.255.255.224 host 173.200.13.35 eq 5555
+ permit udp 0.0.0.0 255.255.255.224 host 173.202.50.106 eq netbios-ns
+ permit udp 0.0.0.0 255.255.255.224 host 173.202.50.106 eq netbios-dgm
+ permit tcp 0.0.0.0 255.255.255.224 host 173.202.50.106 eq 139
+ permit tcp 0.0.0.0 255.255.255.224 host 173.202.50.106 eq 445
+ permit tcp 0.0.0.0 255.255.255.224 host 173.202.50.106 eq ftp
+ permit tcp 0.0.0.0 255.255.255.224 host 173.202.50.106 eq www
+ permit udp 0.0.0.0 255.255.255.224 host 169.168.40.218 eq netbios-ns
+ permit udp 0.0.0.0 255.255.255.224 host 169.168.40.218 eq netbios-dgm
+ permit tcp 0.0.0.0 255.255.255.224 host 169.168.40.218 eq 139
+ permit tcp 0.0.0.0 255.255.255.224 host 169.168.40.218 eq 445
+ permit tcp 0.0.0.0 255.255.255.224 host 169.168.40.218 eq ftp
+ permit tcp 0.0.0.0 255.255.255.224 host 169.168.40.218 eq www
+ permit udp 0.0.0.0 255.255.255.224 host 10.34.242.131 eq netbios-ns
+ permit udp 0.0.0.0 255.255.255.224 host 10.34.242.131 eq netbios-dgm
+ permit tcp 0.0.0.0 255.255.255.224 host 10.34.242.131 eq 139
+ permit tcp 0.0.0.0 255.255.255.224 host 10.34.242.131 eq 445
+ permit tcp 0.0.0.0 255.255.255.224 host 10.34.242.131 eq ftp
+ permit tcp 0.0.0.0 255.255.255.224 host 10.34.242.131 eq www
+ permit udp 0.0.0.0 255.255.255.224 host 156.6.103.206 eq netbios-ns
+ permit udp 0.0.0.0 255.255.255.224 host 156.6.103.206 eq netbios-dgm
+ permit tcp 0.0.0.0 255.255.255.224 host 156.6.103.206 eq 139
+ permit tcp 0.0.0.0 255.255.255.224 host 156.6.103.206 eq 445
+ permit tcp 0.0.0.0 255.255.255.224 host 156.6.103.206 eq ftp
+ permit tcp 0.0.0.0 255.255.255.224 host 156.6.103.206 eq www
+ permit udp 0.0.0.0 255.255.255.224 host 156.6.106.176 eq bootpc
+ permit udp 0.0.0.0 255.255.255.224 host 156.6.106.176 eq bootps
+ permit udp 0.0.0.0 255.255.255.224 host 156.6.106.177 eq bootpc
+ permit udp 0.0.0.0 255.255.255.224 host 156.6.106.177 eq bootps
+ permit udp 0.0.0.0 255.255.255.224 host 86.51.237.114 eq bootpc
+ permit udp 0.0.0.0 255.255.255.224 host 86.51.237.114 eq bootps
+ permit udp 0.0.0.0 255.255.255.224 host 91.118.4.204 eq bootpc
+ permit udp 0.0.0.0 255.255.255.224 host 91.118.4.204 eq bootps
+ permit udp 0.0.0.0 255.255.255.224 host 165.4.243.120 eq bootpc
+ permit udp 0.0.0.0 255.255.255.224 host 165.4.243.120 eq bootps
+ permit udp 0.0.0.0 255.255.255.224 host 165.4.243.114 eq bootpc
+ permit udp 0.0.0.0 255.255.255.224 host 165.4.243.114 eq bootps
+ permit udp 0.0.0.0 255.255.255.224 host 91.118.192.148 eq bootpc
+ permit udp 0.0.0.0 255.255.255.224 host 91.118.192.148 eq bootps
+ permit udp 0.0.0.0 255.255.255.224 host 91.118.192.149 eq bootpc
+ permit udp 0.0.0.0 255.255.255.224 host 91.118.192.149 eq bootps
+ permit udp 0.0.0.0 255.255.255.224 host 172.31.175.158 eq bootpc
+ permit udp 0.0.0.0 255.255.255.224 host 172.31.175.158 eq bootps
+ permit udp 0.0.0.0 255.255.255.224 host 172.31.175.156 eq bootpc
+ permit udp 0.0.0.0 255.255.255.224 host 172.31.175.156 eq bootps
+ permit udp 0.0.0.0 255.255.255.224 host 86.51.50.141 eq bootpc
+ permit udp 0.0.0.0 255.255.255.224 host 86.51.50.141 eq bootps
+ permit udp 0.0.0.0 255.255.255.224 host 86.51.50.140 eq bootpc
+ permit udp 0.0.0.0 255.255.255.224 host 86.51.50.140 eq bootps
+ permit udp 0.0.0.0 255.255.255.224 host 91.118.238.43 eq bootpc
+ permit udp 0.0.0.0 255.255.255.224 host 91.118.238.43 eq bootps
+ permit udp 0.0.0.0 255.255.255.224 host 91.118.238.42 eq bootpc
+ permit udp 0.0.0.0 255.255.255.224 host 91.118.238.42 eq bootps
+ permit udp 0.0.0.0 255.255.255.224 host 173.201.197.168 eq bootpc
+ permit udp 0.0.0.0 255.255.255.224 host 173.201.197.168 eq bootps
+ permit udp 0.0.0.0 255.255.255.224 host 169.170.51.54 eq bootpc
+ permit udp 0.0.0.0 255.255.255.224 host 169.170.51.54 eq bootps
+ permit udp 0.0.0.0 255.255.255.224 host 173.201.197.154 eq bootpc
+ permit udp 0.0.0.0 255.255.255.224 host 173.201.197.154 eq bootps
+ permit udp 0.0.0.0 255.255.255.224 host 169.170.51.61 eq bootpc
+ permit udp 0.0.0.0 255.255.255.224 host 169.170.51.61 eq bootps
+ permit udp 0.0.0.0 255.255.255.224 host 173.201.197.169 eq bootpc
+ permit udp 0.0.0.0 255.255.255.224 host 173.201.197.169 eq bootps
+ permit udp 0.0.0.0 255.255.255.224 host 169.170.51.216 eq bootpc
+ permit udp 0.0.0.0 255.255.255.224 host 169.170.51.216 eq bootps
+ permit udp 0.0.0.0 255.255.255.224 host 91.118.125.99 eq bootpc
+ permit udp 0.0.0.0 255.255.255.224 host 91.118.125.99 eq bootps
+ permit udp 0.0.0.0 255.255.255.224 host 91.118.125.98 eq bootpc
+ permit udp 0.0.0.0 255.255.255.224 host 91.118.125.98 eq bootps
+ permit udp 0.0.0.0 255.255.255.224 host 91.118.190.7 eq bootpc
+ permit udp 0.0.0.0 255.255.255.224 host 91.118.190.7 eq bootps
+ permit udp 0.0.0.0 255.255.255.224 host 91.118.190.3 eq bootpc
+ permit udp 0.0.0.0 255.255.255.224 host 91.118.190.3 eq bootps
+ permit udp 0.0.0.0 255.255.255.224 host 173.202.51.201 eq bootps
+ permit udp 0.0.0.0 255.255.255.224 host 173.202.51.201 eq bootpc
+ permit udp 0.0.0.0 255.255.255.224 host 173.202.51.200 eq bootps
+ permit udp 0.0.0.0 255.255.255.224 host 173.202.51.200 eq bootpc
+ permit udp 0.0.0.0 255.255.255.224 host 173.202.51.219 eq bootps
+ permit udp 0.0.0.0 255.255.255.224 host 173.202.51.219 eq bootpc
+ permit udp 0.0.0.0 255.255.255.224 host 156.6.106.181 eq bootps
+ permit udp 0.0.0.0 255.255.255.224 host 156.6.106.181 eq bootpc
+ permit udp 0.0.0.0 255.255.255.224 host 173.200.231.121 eq bootps
+ permit udp 0.0.0.0 255.255.255.224 host 173.200.231.121 eq bootpc
+ permit tcp 0.0.0.0 255.255.255.224 host 86.51.26.8 eq www
+ permit tcp 0.0.0.0 255.255.255.224 host 86.51.26.8 eq 443
+ permit tcp 0.0.0.0 255.255.255.224 host 173.200.255.54 eq www
+ permit tcp 0.0.0.0 255.255.255.224 host 173.200.255.54 eq 443
+ permit tcp 0.0.0.0 255.255.255.224 host 173.202.192.172 eq www
+ permit tcp 0.0.0.0 255.255.255.224 host 173.202.192.172 eq 443
+ permit tcp 0.0.0.0 255.255.255.224 host 173.200.255.53 eq www
+ permit tcp 0.0.0.0 255.255.255.224 host 86.51.26.7 eq www
+ permit tcp 0.0.0.0 255.255.255.224 host 173.200.255.53 eq 443
+ permit tcp 0.0.0.0 255.255.255.224 host 86.51.26.7 eq 443
+ permit tcp 0.0.0.0 255.255.255.224 host 173.200.255.50 eq www
+ permit tcp 0.0.0.0 255.255.255.224 host 86.51.26.27 eq www
+ permit tcp 0.0.0.0 255.255.255.224 host 173.200.255.50 eq 443
+ permit tcp 0.0.0.0 255.255.255.224 host 86.51.26.27 eq 443
+ permit tcp 0.0.0.0 255.255.255.224 host 173.202.183.171 eq www
+ permit tcp 0.0.0.0 255.255.255.224 host 173.202.137.58 eq www
+ permit tcp 0.0.0.0 255.255.255.224 host 173.202.183.171 eq 443
+ permit tcp 0.0.0.0 255.255.255.224 host 173.202.137.58 eq 443
+ permit tcp 0.0.0.0 255.255.255.224 host 173.202.183.9 eq www
+ permit tcp 0.0.0.0 255.255.255.224 host 173.202.136.82 eq www
+ permit tcp 0.0.0.0 255.255.255.224 host 173.202.183.9 eq 443
+ permit tcp 0.0.0.0 255.255.255.224 host 173.202.136.82 eq 443
+ permit tcp 0.0.0.0 255.255.255.224 host 173.200.255.52 eq 443
+ permit tcp 0.0.0.0 255.255.255.224 host 86.51.26.5 eq 443
+ permit tcp 0.0.0.0 255.255.255.224 host 173.202.194.244 eq www
+ permit tcp 0.0.0.0 255.255.255.224 host 173.202.194.192 eq www
+ permit tcp 0.0.0.0 255.255.255.224 host 173.202.194.244 eq 443
+ permit tcp 0.0.0.0 255.255.255.224 host 173.202.194.192 eq 443
+ permit tcp 0.0.0.0 255.255.255.224 host 86.51.26.4 eq www
+ permit tcp 0.0.0.0 255.255.255.224 host 86.51.26.4 eq 443
+ permit tcp 0.0.0.0 255.255.255.224 host 173.200.255.55 eq www
+ permit tcp 0.0.0.0 255.255.255.224 host 173.200.255.55 eq 443
+ permit tcp 0.0.0.0 255.255.255.224 host 173.202.183.0 eq www
+ permit tcp 0.0.0.0 255.255.255.224 host 173.202.183.0 eq 443
+ permit tcp 0.0.0.0 255.255.255.224 host 173.202.136.94 eq www
+ permit tcp 0.0.0.0 255.255.255.224 host 173.202.136.94 eq 443
+ permit tcp 0.0.0.0 255.255.255.224 host 173.202.136.92 eq www
+ permit tcp 0.0.0.0 255.255.255.224 host 173.202.136.92 eq 443
+ permit tcp 0.0.0.0 255.255.255.224 host 173.202.183.3 eq www
+ permit tcp 0.0.0.0 255.255.255.224 host 173.202.183.3 eq 443
+ permit tcp 0.0.0.0 255.255.255.224 host 173.202.128.75 eq www
+ permit tcp 0.0.0.0 255.255.255.224 host 173.202.175.145 eq www
+ permit tcp 0.0.0.0 255.255.255.224 host 173.202.128.75 eq 443
+ permit tcp 0.0.0.0 255.255.255.224 host 173.202.175.145 eq 443
+ permit tcp 0.0.0.0 255.255.255.224 host 86.51.49.104 eq www
+ permit tcp 0.0.0.0 255.255.255.224 host 86.51.49.104 eq 443
+ permit tcp 0.0.0.0 255.255.255.224 host 173.200.231.160 eq www
+ permit tcp 0.0.0.0 255.255.255.224 host 173.200.231.160 eq 443
+ permit tcp 0.0.0.0 255.255.255.224 host 173.202.215.21 eq www
+ permit tcp 0.0.0.0 255.255.255.224 host 173.202.215.21 eq 443
+ permit tcp 0.0.0.0 255.255.255.224 host 173.201.124.108 eq www
+ permit tcp 0.0.0.0 255.255.255.224 host 91.126.23.86 eq www
+ permit tcp 0.0.0.0 255.255.255.224 host 91.126.23.84 eq www
+ permit tcp 0.0.0.0 255.255.255.224 host 169.168.50.234 eq www
+ permit tcp 0.0.0.0 255.255.255.224 host 169.168.50.235 eq www
+ permit tcp 0.0.0.0 255.255.255.224 host 86.51.165.153 eq www
+ permit tcp 0.0.0.0 255.255.255.224 host 86.51.165.155 eq www
+ permit tcp 0.0.0.0 255.255.255.224 host 86.51.165.154 eq www
+ permit tcp 0.0.0.0 255.255.255.224 host 86.51.165.144 eq www
+ permit tcp 0.0.0.0 255.255.255.224 host 169.168.50.232 eq www
+ permit tcp 0.0.0.0 255.255.255.224 host 169.168.50.233 eq www
+ permit tcp 0.0.0.0 255.255.255.224 host 169.168.50.8 eq www
+ permit tcp 0.0.0.0 255.255.255.224 host 169.168.50.9 eq www
+ permit tcp 0.0.0.0 255.255.255.224 host 173.200.36.224 eq www
+ permit tcp 0.0.0.0 255.255.255.224 host 173.200.36.227 eq www
+ permit tcp 0.0.0.0 255.255.255.224 host 91.118.112.28 eq www
+ permit tcp 0.0.0.0 255.255.255.224 host 91.118.192.220 eq www
+ permit tcp 0.0.0.0 255.255.255.224 host 91.118.192.217 eq www
+ permit tcp 0.0.0.0 255.255.255.224 host 86.51.165.150 eq www
+ permit tcp 0.0.0.0 255.255.255.224 host 86.51.165.151 eq www
+ permit tcp 0.0.0.0 255.255.255.224 host 86.51.165.149 eq www
+ permit tcp 0.0.0.0 255.255.255.224 host 86.51.165.148 eq www
+ permit tcp 0.0.0.0 255.255.255.224 host 156.6.102.5 eq www
+ permit tcp 0.0.0.0 255.255.255.224 host 156.6.102.7 eq www
+ permit tcp 0.0.0.0 255.255.255.224 host 173.201.125.236 eq www
+ permit tcp 0.0.0.0 255.255.255.224 host 173.201.125.237 eq www
+ permit tcp 0.0.0.0 255.255.255.224 host 169.168.50.10 eq www
+ permit tcp 0.0.0.0 255.255.255.224 host 173.200.36.220 eq www
+ permit tcp 0.0.0.0 255.255.255.224 host 86.51.165.147 eq www
+ permit tcp 0.0.0.0 255.255.255.224 host 173.200.43.146 eq 8080
+ permit tcp 0.0.0.0 255.255.255.224 host 173.200.43.146 eq 443
