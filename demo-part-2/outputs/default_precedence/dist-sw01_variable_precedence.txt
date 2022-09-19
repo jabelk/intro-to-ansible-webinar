@@ -1,0 +1,18 @@
+The Ansible variable precedence is good to know about. 
+It teaches both all the places you can organize your variables 
+and tips and tricks that will be helpful as you get more experience.
+
+It is good to have a baseline in the default "all" group (either in inventory or group_vars).
+
+The current device Ansible is working on is: 
+
+dist-sw01
+
+The device is in group(s):
+
+['nxos']
+
+The site code for this device is:
+
+2_lax
+

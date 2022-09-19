@@ -6,7 +6,7 @@
     tasks:
 
     - name: "TASK 1: PRINT DEBUG MAGIC VARIABLES FOR IOS"
-      debug:
+      ansible.utils.debug:
         msg: "The hostname is {{ inventory_hostname }} with a network os of {{ ansible_network_os }}"
 
   - name: "PLAY 2 - PRINTING OUT NXOS HOSTNAME AND NETWORK OS"
@@ -16,7 +16,7 @@
     tasks:
 
     - name: "TASK 1: PRINT DEBUG MAGIC VARIABLES FOR NXOS"
-      debug:
+      ansible.utils.debug:
         msg: "The hostname is {{ inventory_hostname }} with a network os of {{ ansible_network_os }}"
 
 
@@ -27,5 +27,5 @@
     tasks:
 
     - name: "TASK 1: PRINT DEBUG MAGIC VARIABLES FOR ALL GROUPS"
-      debug:
+      ansible.utils.debug:
         msg: "The hostname is {{ inventory_hostname }} with a network os of {{ ansible_network_os }}"
