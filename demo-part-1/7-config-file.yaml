@@ -5,10 +5,10 @@
     gather_facts: no
     tasks:
 
-        - name: "TASK 1 - BACKUP CONFIG AND RENDER AND PUSH ACL CONFIG" 
-          cisco.ios.ios_config:
-            backup: yes
-            src: "templates/big-acl.txt"
+        # - name: "TASK 1 - BACKUP CONFIG AND RENDER AND PUSH ACL CONFIG" 
+        #   cisco.ios.ios_config:
+        #     backup: yes
+        #     src: "templates/big-acl.txt"
   
         - name: "TASK 2 - PING TEST PROD VLAN 101" 
           cisco.ios.ios_ping:
