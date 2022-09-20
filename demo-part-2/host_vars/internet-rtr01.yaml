@@ -1,1 +1,5 @@
 # no site code variable
+
+network_services:
+  - name: "svi"
+    enabled: True

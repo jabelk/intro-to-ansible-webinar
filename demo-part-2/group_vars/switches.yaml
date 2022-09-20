@@ -1,0 +1,6 @@
+site_code: "3_rtp"
+
+vlan:
+  number: 1337
+  name: "SVI-DEMO"
+  address: "172.16.107."

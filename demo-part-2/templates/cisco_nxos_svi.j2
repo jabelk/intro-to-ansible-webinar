@@ -1,0 +1,15 @@
+
+vlan {{ vlan.get("number") }}
+ name {{ vlan.get("name") }}
+!
+interface Vlan{{ vlan.get("number") }}
+ no shutdown
+ description {{ vlan.get("name") }}
+ ip address {{ vlan.get("address") }}2/24
+ no ip redirects
+ ip router ospf 1 area 0.0.0.0
+ no ipv6 redirects
+ hsrp 10 ipv4
+  ip {{ vlan.get("address") }}1
+ exit
+exit

@@ -1,0 +1,37 @@
+---
+  - name: "PLAY 1 - TBD"
+    hosts: "switches"
+    connection: "network_cli"
+    gather_facts: no
+    tasks:
+
+      - name: "TASK 1 - ENSURE CONFIG DIR EXISTS"
+        ansible.builtin.file:
+          path: "config"
+          state: "directory"
+          mode: 0775
+        run_once: true
+
+      - name: "TASK 2 - BUILD IOS SVI CONFIG"
+        ansible.builtin.template:
+          src: "cisco_nxos_svi.j2"
+          dest: "config/{{ inventory_hostname }}_svi_config.txt"
+
+      - name: "TASK 4 - CONFIGURE A SIMPLE L3 INTERFACE"
+        cisco.nxos.nxos_config:
+          diff_against: "running"
+          src: "cisco_nxos_svi.j2"
+          backup: "yes"
+          save_when: "modified"
+
+      - name: "TASK 5 - RUN POST CHECKS AND SAVE TO MEMORY"
+        cisco.nxos.nxos_command:
+            commands:
+              - "show ip interface brief"
+            # - "show interfaces"
+        register: "show_command_output"
+
+      # - name: "TASK 6 SAVE POST CHECK OUTPUT TO FILE"
+      #   ansible.builtin.template:
+      #     src: "show_command.j2"
+      #     dest: "show_outputs/post_checks_{{ inventory_hostname }}_show_cmds.txt"

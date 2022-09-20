@@ -1,0 +1,15 @@
+
+vlan 1337
+ name SVI-DEMO
+!
+interface Vlan1337
+ no shutdown
+ description SVI-DEMO
+ ip address 172.16.107.2/24
+ no ip redirects
+ ip router ospf 1 area 0.0.0.0
+ no ipv6 redirects
+ hsrp 10 ipv4
+  ip 172.16.107.1
+ exit
+exit

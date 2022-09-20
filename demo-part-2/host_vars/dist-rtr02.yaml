@@ -1,1 +1,5 @@
-site_code: 4_bgl
+site_code: "4_bgl"
+
+network_services:
+  - name: "svi"
+    enabled: True

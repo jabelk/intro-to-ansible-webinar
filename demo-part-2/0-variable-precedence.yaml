@@ -5,17 +5,17 @@
     gather_facts: no
     tasks:
 
-    - name: "TASK 1 - CREATE SHOW_OUTPUTS DIR IF DOES NOT EXIST"
-      ansible.builtin.file:
-        path: "outputs/default_precedence/"
-        state: "directory"
-        mode: 0775
-      run_once: true
+      - name: "TASK 1 - CREATE OUTPUTS DIR AND SUB-DIR IF DOES NOT EXIST"
+        ansible.builtin.file:
+          path: "outputs/default_precedence"
+          state: "directory"
+          mode: 0775
+        run_once: true
 
-    - name: "TASK 2 - USE J2 TEMPLATE TO FORMAT AND SAVE OUTPUT"
-      ansible.builtin.template:
-        src: "variable-precedence.j2"
-        dest: "outputs/default_precedence/{{ inventory_hostname }}_variable_precedence.txt"
+      - name: "TASK 2 - USE J2 TEMPLATE TO FORMAT AND SAVE OUTPUT"
+        ansible.builtin.template:
+          src: "variable-precedence.j2"
+          dest: "outputs/default_precedence/{{ inventory_hostname }}_variable_precedence.txt"
 
   - name: "PLAY 2 - VARS INPUT OVERRIDE"
     hosts: "all"
@@ -26,14 +26,14 @@
 
     tasks:
 
-    - name: "TASK 1 - CREATE SHOW_OUTPUTS DIR IF DOES NOT EXIST"
-      ansible.builtin.file:
-        path: "outputs/vars_play"
-        state: "directory"
-        mode: 0775
-      run_once: true
+      - name: "TASK 1 - CREATE OUTPUTS DIR AND SPECIFIC SUB-DIR IF DOES NOT EXIST"
+        ansible.builtin.file:
+          path: "outputs/vars_play"
+          state: "directory"
+          mode: 0775
+        run_once: true
 
-    - name: "TASK 2 - USE J2 TEMPLATE TO FORMAT AND SAVE OUTPUT"
-      ansible.builtin.template:
-        src: "variable-precedence.j2"
-        dest: "outputs/vars_play/{{ inventory_hostname }}_variable_precedence_vars_play.txt"
+      - name: "TASK 2 - USE J2 TEMPLATE TO FORMAT AND SAVE OUTPUT"
+        ansible.builtin.template:
+          src: "variable-precedence.j2"
+          dest: "outputs/vars_play/{{ inventory_hostname }}_variable_precedence_vars_play.txt"
