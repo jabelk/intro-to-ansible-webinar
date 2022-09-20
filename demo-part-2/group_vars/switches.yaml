@@ -4,3 +4,5 @@ vlan:
   number: 1337
   name: "SVI-DEMO"
   address: "172.16.107."
+
+  # snmp omitted to show precedence

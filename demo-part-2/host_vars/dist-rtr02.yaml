@@ -1,5 +1,7 @@
 site_code: "4_bgl"
 
+# no snmp variables, will use routers.yaml
+
 network_services:
   - name: "svi"
     enabled: True

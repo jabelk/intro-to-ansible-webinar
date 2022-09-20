@@ -1,0 +1,11 @@
+---
+  - name: "PLAY 1 - TBD"
+    hosts: "all"
+    connection: "network_cli"
+    gather_facts: no
+    tasks:
+
+      - name: "TASK 2 - BUILD IOS SVI CONFIG"
+        ansible.netcommon.cli_config:
+          config: "{{ lookup('template', 'snmp.j2') }}"
+          

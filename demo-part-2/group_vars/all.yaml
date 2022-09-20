@@ -1,1 +1,8 @@
 site_code: "2_lax"
+
+
+snmp:
+  ro: "all_read_only"
+  rw: "all_read_write"
+  contact: "all_lab_admin"
+  location: "all_rtp"

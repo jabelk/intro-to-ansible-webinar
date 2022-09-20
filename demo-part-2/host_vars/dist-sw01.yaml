@@ -1,1 +1,7 @@
 # no site code variable
+
+snmp:
+  ro: "dist_sw01_ro"
+  rw: "dist_sw01_rw"
+  contact: "dist_sw01_contact"
+  location: "dist_sw01_location"

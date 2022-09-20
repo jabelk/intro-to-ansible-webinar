@@ -1,5 +1,13 @@
 # no site code variable
 
+snmp:
+  ro: "internet_rtr01_ro"
+  rw: "internet_rtr01_rw"
+  contact: "internet_rtr01_contact"
+  location: "internet_rtr01_location"
+
 network_services:
   - name: "svi"
+    enabled: True
+  - name: "snmp"
     enabled: True

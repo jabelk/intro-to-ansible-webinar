@@ -1,1 +1,7 @@
 # no site code variable 
+
+snmp:
+  ro: "routers_ro"
+  rw: "routers_rw"
+  contact: "routers_contact"
+  location: "routers_location"
