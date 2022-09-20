@@ -1,5 +1,8 @@
 #macs
 .DS_Store
+demo-part-2/backup
+demo-part-2/outputs
+demo-part-2/config
 
 #ansible
 *.retry

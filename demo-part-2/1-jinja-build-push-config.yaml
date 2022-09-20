@@ -20,18 +20,11 @@
       - name: "TASK 4 - CONFIGURE A SIMPLE L3 INTERFACE"
         cisco.nxos.nxos_config:
           diff_against: "running"
-          src: "cisco_nxos_svi.j2"
+          src: "config/{{ inventory_hostname }}_svi_config.txt"
           backup: "yes"
           save_when: "modified"
 
-      - name: "TASK 5 - RUN POST CHECKS AND SAVE TO MEMORY"
+      - name: "TASK 5 - RUN POST CHECKS"
         cisco.nxos.nxos_command:
             commands:
               - "show ip interface brief"
-            # - "show interfaces"
-        register: "show_command_output"
-
-      # - name: "TASK 6 SAVE POST CHECK OUTPUT TO FILE"
-      #   ansible.builtin.template:
-      #     src: "show_command.j2"
-      #     dest: "show_outputs/post_checks_{{ inventory_hostname }}_show_cmds.txt"
