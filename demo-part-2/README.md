@@ -3,6 +3,7 @@
 Links mentioned:
 - https://docs.ansible.com/ansible/latest/user_guide/playbooks_variables.html#variable-precedence-where-should-i-put-a-variable
 - https://td4a.codethenetwork.com/
+- <https://j2live.ttl255.com/>
 
 ### Vars 
 

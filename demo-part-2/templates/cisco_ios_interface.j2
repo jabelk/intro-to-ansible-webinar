@@ -1,5 +1,0 @@
-object network INSIDE-{{ vlan.get("name") }}
- subnet {{ vlan.get("address") }}0 255.255.255.0
-exit
-object-group network INSIDE-NETWORKS
- network-object object INSIDE-{{ vlan.get("name") }}

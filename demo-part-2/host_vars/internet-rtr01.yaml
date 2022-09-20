@@ -6,6 +6,32 @@ snmp:
   contact: "internet_rtr01_contact"
   location: "internet_rtr01_location"
 
+interfaces:
+  Loopback145:
+    description: "This is a loopback configured by ansible"
+    ipv4addr: "10.150.150.100"
+    subnet: "255.255.255.255"
+
+  Loopback146:
+    description: "This is a loopback configured by ansible"
+    ipv4addr: "10.150.150.101"
+    subnet: "255.255.255.255"
+
+  Loopback147:
+    description: "This is a loopback configured by ansible"
+    ipv4addr: "10.150.150.102"
+    subnet: "255.255.255.255"
+
+  Loopback148:
+    description: "This is a loopback configured by ansible"
+    ipv4addr: "10.150.150.103"
+    subnet: "255.255.255.255"
+
+  Loopback149:
+    description: "This is a loopback configured by ansible"
+    ipv4addr: "10.150.150.104"
+    subnet: "255.255.255.255"
+
 network_services:
   - name: "svi"
     enabled: True
