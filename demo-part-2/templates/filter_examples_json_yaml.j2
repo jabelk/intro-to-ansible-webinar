@@ -1,0 +1,9 @@
+raw_json_facts: {{ ios_facts.ansible_facts }}
+
+# using to_nice_yaml filter:
+
+{{ ios_facts.ansible_facts | to_nice_yaml }}
+
+
+nice_json_filter:
+{{ ios_facts.ansible_facts | to_nice_json }}

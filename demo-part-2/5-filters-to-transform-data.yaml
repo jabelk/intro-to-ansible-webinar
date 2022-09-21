@@ -1,0 +1,38 @@
+---
+  - name: "PLAY 1 - PRINTING OUT IOS HOSTNAME AND NETWORK OS"
+    hosts: "dist-rtr02"
+    connection: "network_cli"
+    gather_facts: no
+    vars:
+      sean_subnet: "192.168.1.0/24"
+
+    tasks:
+
+      - name: "TASK 1 - CREATE OUTPUTS DIR AND SUB-DIR IF DOES NOT EXIST"
+        ansible.builtin.file:
+          path: "outputs/filter_examples"
+          state: "directory"
+          mode: 0775
+        run_once: true
+
+      - name: Gather interfaces resource and minimal legacy facts
+        cisco.ios.ios_facts:
+          gather_subset: min
+          gather_network_resources: interfaces
+        register: "ios_facts"
+
+      - name: "TASK 2 - BASIC FILTERS"
+        ansible.builtin.template:
+          src: "filter_examples_basic.j2"
+          dest: "outputs/filter_examples/{{ inventory_hostname }}_filter_example_json_yaml.yaml"
+
+
+      - name: "TASK 2 - JSON / YAML FILTER"
+        ansible.builtin.template:
+          src: "filter_examples_json_yaml.j2"
+          dest: "outputs/filter_examples/{{ inventory_hostname }}_filter_example_json_yaml.yaml"
+
+      - name: "TASK 2 - IPADDR FILTER"
+        ansible.builtin.template:
+          src: "filter_examples_ipaddr.j2"
+          dest: "outputs/filter_examples/{{ inventory_hostname }}_filter_ipaddr_example.txt"

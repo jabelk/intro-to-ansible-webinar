@@ -4,6 +4,10 @@ Links mentioned:
 - https://docs.ansible.com/ansible/latest/user_guide/playbooks_variables.html#variable-precedence-where-should-i-put-a-variable
 - https://td4a.codethenetwork.com/
 - <https://j2live.ttl255.com/>
+- <https://docs.ansible.com/ansible/latest/user_guide/playbooks_filters.html>
+- <https://docs.ansible.com/ansible/latest/collections/ansible/utils/docsite/filters_ipaddr.html>
+- <https://github.com/network-automation/ipaddr_filter>
+- <https://jinja.palletsprojects.com/en/3.1.x/templates/#builtin-filters>
 
 ### Vars 
 

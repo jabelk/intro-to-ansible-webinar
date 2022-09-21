@@ -1,0 +1,10 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: false
+  vars:
+    sean_subnet: "192.168.1.0/24"
+  tasks:
+    - template:
+        src: ./template.j2
+        dest: ./rendered

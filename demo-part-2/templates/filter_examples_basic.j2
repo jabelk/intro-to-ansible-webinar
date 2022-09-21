@@ -1,0 +1,68 @@
+
+
+
+Jinja2: 
+{% raw %} 
+IP Address: {{sean_subnet | ansible.utils.ipaddr }} 
+{% endraw %}
+
+Renders: 
+
+{{ some_variable | default(5) }}
+
+
+Use the dict2items filter to transform a dictionary into a list of items suitable for looping:
+Dictionary data (before applying the dict2items filter):
+
+tags:
+  Application: payment
+  Environment: dev
+List data (after applying the dict2items filter):
+
+- key: Application
+  value: payment
+- key: Environment
+  value: dev
+
+If you want to configure the names of the keys, the dict2items filter accepts 2 keyword arguments. 
+Pass the key_name and value_name arguments to configure the names of the keys in the list output:
+
+{{ files | dict2items(key_name='file', value_name='path') }}
+Dictionary data (before applying the dict2items filter):
+
+files:
+  users: /etc/passwd
+  groups: /etc/group
+List data (after applying the dict2items filter):
+
+- file: users
+  path: /etc/passwd
+- file: groups
+  path: /etc/group
+
+
+{{ dict | dict2items }}
+
+
+Use the vlan_parser filter to transform an unsorted list of VLAN integers into a sorted string list of integers according to IOS-like VLAN list rules. This list has the following properties:
+
+Vlans are listed in ascending order.
+
+Three or more consecutive VLANs are listed with a dash.
+
+The first line of the list can be first_line_len characters long.
+
+Subsequent list lines can be other_line_len characters.
+
+To sort a VLAN list:
+
+{{ [3003, 3004, 3005, 100, 1688, 3002, 3999] | ansible.netcommon.vlan_parser }}
+This example renders the following sorted list:
+
+['100,1688,3002-3005,3999']
+Another example Jinja template:
+
+{% set parsed_vlans = vlans | ansible.netcommon.vlan_parser %}
+switchport trunk allowed vlan {{ parsed_vlans[0] }}
+{% for i in range (1, parsed_vlans | count) %}
+switchport tru
