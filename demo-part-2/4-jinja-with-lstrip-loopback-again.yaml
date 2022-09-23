@@ -1,6 +1,6 @@
 # include looping / conditional / filter
 ---
-  - name: "PLAY 1 - TBD"
+  - name: "PLAY 1 - BUILD INTERMEDIATE J2 LOOPBACK CONFIG AND PUSH"
     hosts: "routers"
     connection: "network_cli"
     gather_facts: no
@@ -8,12 +8,18 @@
 
       - name: "TASK 1 - ENSURE CONFIG DIR EXISTS"
         ansible.builtin.file:
-          path: "config"
+          path: "config/loopbacks"
           state: "directory"
           mode: 0775
         run_once: true
 
-      - name: "TASK 2 - BUILD IOS INTERFACE CONFIG"
+      - name: "TASK 2 - BUILD IOS INTERFACE CONFIG WITH SPACING ISSUES"
         ansible.builtin.template:
-          src: "ios_interface_lstrip.j2"
-          dest: "config/{{ inventory_hostname }}_interface_config_lstrip.txt"
+          src: "ios_interface.j2"
+          dest: "config/loopbacks/{{ inventory_hostname }}_interface_config_lstrip.txt"
+
+      - name: "TASK 3 - CONFIGURE A BUNCH OF LOOPBACK INTERFACES"
+        cisco.ios.ios_config:
+          src: "config/loopbacks/{{ inventory_hostname }}_interface_config_lstrip.txt"
+          backup: "yes"
+          save_when: "modified"

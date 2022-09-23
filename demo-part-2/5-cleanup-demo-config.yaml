@@ -3,6 +3,7 @@
     hosts: "all"
     connection: "network_cli"
     gather_facts: no
+    ignore_errors: yes
     tasks:
 
       - name: "TASK 1 - ENSURE CONFIG DIR EXISTS"
@@ -20,3 +21,15 @@
       - name: "TASK 3 - PUSH CONFIG TO REMOVE DEMO CONFIG"
         ansible.netcommon.cli_config:
           config: "{{ lookup('file', 'config/cleanup/{{ inventory_hostname }}_remove_demo_config.txt') }}"
+
+      - name: "TASK 4 - REMOVE CONFIG DIR"
+        ansible.builtin.file:
+          path: "config"
+          state: "absent"
+        run_once: true
+
+      - name: "TASK 5 - REMOVE OUTPUTS DIR"
+        ansible.builtin.file:
+          path: "outputs"
+          state: "absent"
+        run_once: true

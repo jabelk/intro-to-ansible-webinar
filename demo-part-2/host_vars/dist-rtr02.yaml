@@ -7,19 +7,19 @@ interfaces:
     description: "Loopback for RTP lab"
     ipv4addr: "10.123.123.100"
     subnet: "255.255.255.255"
-  - name: Loopback1
+  - name: Loopback101
     description: "Loopback for RTP lab"
     ipv4addr: "10.123.123.101"
     subnet: "255.255.255.255"
-  - name: Loopback100
+  - name: Loopback102
     description: "Loopback for RTP lab"
     ipv4addr: "10.123.123.102"
     subnet: "255.255.255.255"
-  - name: Loopback100
+  - name: Loopback103
     description: "Loopback for RTP lab"
     ipv4addr: "10.123.123.103"
     subnet: "255.255.255.255"
-  - name: Loopback100
+  - name: Loopback104
     description: "Loopback for RTP lab"
     ipv4addr: "10.123.123.104"
     subnet: "255.255.255.255"

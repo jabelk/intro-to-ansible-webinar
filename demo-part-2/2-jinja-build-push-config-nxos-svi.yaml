@@ -7,7 +7,7 @@
 
       - name: "TASK 1 - ENSURE CONFIG DIR EXISTS"
         ansible.builtin.file:
-          path: "config/build"
+          path: "config/svi"
           state: "directory"
           mode: 0775
         run_once: true
@@ -15,16 +15,16 @@
       - name: "TASK 2 - BUILD NXOS SVI CONFIG"
         ansible.builtin.template:
           src: "cisco_nxos_svi.j2"
-          dest: "config/build/{{ inventory_hostname }}_svi_config.txt"
+          dest: "config/svi/{{ inventory_hostname }}_svi_config.txt"
 
-      - name: "TASK 4 - CONFIGURE A SIMPLE L3 INTERFACE"
+      - name: "TASK 3 - CONFIGURE A SIMPLE L3 INTERFACE"
         cisco.nxos.nxos_config:
           diff_against: "running"
-          src: "config/{{ inventory_hostname }}_svi_config.txt"
+          src: "config/svi/{{ inventory_hostname }}_svi_config.txt"
           backup: "yes"
           save_when: "modified"
 
-      - name: "TASK 5 - RUN POST CHECKS"
+      - name: "TASK 4 - RUN POST CHECKS"
         cisco.nxos.nxos_command:
             commands:
               - "show ip interface brief"
