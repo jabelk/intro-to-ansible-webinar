@@ -1,0 +1,22 @@
+---
+  - name: "PLAY 1 - BUILD CONFIG TO REMOVE CONFIG ADDED BY DEMOS"
+    hosts: "all"
+    connection: "network_cli"
+    gather_facts: no
+    tasks:
+
+      - name: "TASK 1 - ENSURE CONFIG DIR EXISTS"
+        ansible.builtin.file:
+          path: "config/cleanup"
+          state: "directory"
+          mode: 0775
+        run_once: true
+
+      - name: "TASK 2 - BUILD NXOS SVI CONFIG"
+        ansible.builtin.template:
+          src: "remove_demo_config.j2"
+          dest: "config/cleanup/{{ inventory_hostname }}_remove_demo_config.txt"
+
+      - name: "TASK 3 - PUSH CONFIG TO REMOVE DEMO CONFIG"
+        ansible.netcommon.cli_config:
+          config: "{{ lookup('file', 'config/cleanup/{{ inventory_hostname }}_remove_demo_config.txt') }}"

@@ -1,0 +1,17 @@
+#jinja2: lstrip_blocks:True, trim_blocks:True
+no snmp-server community {{ snmp.get("ro") }} ro
+no snmp-server community {{ snmp.get("rw") }} rw
+no snmp-server contact {{ snmp.get("contact") }}
+no snmp-server location {{ snmp.get("location") }}
+
+{% if "switches" in group_names %}
+no vlan {{ vlan.get("number") }}
+!
+no interface Vlan{{ vlan.get("number") }}
+{% endif %}
+
+{% if "routers" in group_names %}
+{% for interface_item in interfaces %}
+no interface {{ interface_item.name }}
+{% endfor %}
+{% endif %}

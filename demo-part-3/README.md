@@ -2,14 +2,15 @@
 
 Links mentioned:
 - https://docs.ansible.com/ansible/latest/user_guide/playbooks_variables.html#variable-precedence-where-should-i-put-a-variable
-- <https://docs.ansible.com/ansible/latest/collections/ansible/netcommon/cli_config_module.html>
 - https://td4a.codethenetwork.com/
 - <https://j2live.ttl255.com/>
 - <https://ttl255.com/jinja2-tutorial-part-1-introduction-and-variable-substitution/>
-- <https://ttl255.com/jinja2-tutorial-part-3-whitespace-control/>
 - <https://docs.ansible.com/ansible/latest/user_guide/playbooks_filters.html>
+- <https://docs.ansible.com/ansible/latest/collections/ansible/utils/docsite/filters_ipaddr.html>
+- <https://github.com/network-automation/ipaddr_filter>
+- <https://jinja.palletsprojects.com/en/3.1.x/templates/#builtin-filters>
 
-### Vars Precedence Reference
+### Vars 
 
 Ansible does apply variable precedence. Here is the order of precedence from least to greatest (the last listed variables override all other variables):
 
@@ -41,8 +42,6 @@ Ansible does apply variable precedence. Here is the order of precedence from lea
 In general, Ansible gives precedence to variables that were defined more recently, more actively, and with more explicit scope.
 
 
-To set up your local dev environment you can check out the DevNet Associate Learning Map [setting up your local dev environment](https://learningnetwork.cisco.com/s/learning-plan-detail-standard?ltui__urlRecordId=a1c3i0000007pnIAAQ&ltui__urlRedirect=learning-plan-detail-standard). I use VS Code as an editor and also often use [Remote Development](https://code.visualstudio.com/docs/remote/ssh) to connect to sandbox VMs. In the demos I am actually using a local virtual environment, but often using a provided VM helps reduce hurdles and get you started faster, or using a dockerfile. 
-
 These demos are using the [NSO DevNet Sandbox](https://devnetsandbox.cisco.com/RM/Diagram/Index/43244b33-7af5-4e6b-9b48-58cadf3d2d24?diagramType=Topology), not because we are using NSO, but it has a nice topology (IOS, NXOS, ASA, XR) and we can reserve it for a week at a time.
 
 
@@ -61,3 +60,17 @@ ansible-playbook -i inventory.ini 0-playbook-basics.yaml -v
 ```
 
 If you are using docker, you can attach [VS Code to it](https://code.visualstudio.com/docs/remote/attach-container). You don't need to use docker, you can set up a virtual environment, or install Ansible on your device directly. Installing Ansible is not within the scope of this tutorial.
+
+Tips:
+
+- shift tab
+- vs code for yaml
+- muscle memory
+- comment out
+- don't make too many changes at once
+- double quotes outside everything
+- single quotes within double quotes.
+- gather facts no
+- looks for templates in playbook directory, so don't need full path unless playbooks are in a dir
+- Ansible documentation and examples
+- ignore_errors for uncertain playbooks

@@ -3,31 +3,23 @@ site_code: "4_bgl"
 # no snmp variables, will use routers.yaml
 
 interfaces:
-  Loopback100:
-    description: "This is a loopback configured by ansible"
+  - name: Loopback100
+    description: "Loopback for RTP lab"
     ipv4addr: "10.123.123.100"
     subnet: "255.255.255.255"
-
-  Loopback101:
-    description: "This is a loopback configured by ansible"
+  - name: Loopback1
+    description: "Loopback for RTP lab"
     ipv4addr: "10.123.123.101"
     subnet: "255.255.255.255"
-
-  Loopback102:
-    description: "This is a loopback configured by ansible"
+  - name: Loopback100
+    description: "Loopback for RTP lab"
     ipv4addr: "10.123.123.102"
     subnet: "255.255.255.255"
-
-  Loopback103:
-    description: "This is a loopback configured by ansible"
+  - name: Loopback100
+    description: "Loopback for RTP lab"
     ipv4addr: "10.123.123.103"
     subnet: "255.255.255.255"
-
-  Loopback104:
-    description: "This is a loopback configured by ansible"
+  - name: Loopback100
+    description: "Loopback for RTP lab"
     ipv4addr: "10.123.123.104"
     subnet: "255.255.255.255"
-
-network_services:
-  - name: "svi"
-    enabled: True

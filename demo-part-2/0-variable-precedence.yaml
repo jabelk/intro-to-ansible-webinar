@@ -17,7 +17,7 @@
           src: "variable-precedence.j2"
           dest: "outputs/default_precedence/{{ inventory_hostname }}_variable_precedence.txt"
 
-  - name: "PLAY 2 - VARS INPUT OVERRIDE"
+  - name: "PLAY 2 - VARS PLAY LEVEL PRECEDENCE"
     hosts: "all"
     connection: "network_cli"
     gather_facts: no

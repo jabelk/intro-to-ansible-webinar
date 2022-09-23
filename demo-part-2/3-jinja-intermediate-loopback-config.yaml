@@ -16,4 +16,4 @@
       - name: "TASK 2 - BUILD IOS INTERFACE CONFIG"
         ansible.builtin.template:
           src: "ios_interface.j2"
-          dest: "config/{{ inventory_hostname }}interface_config.txt"
+          dest: "config/{{ inventory_hostname }}_interface_config.txt"

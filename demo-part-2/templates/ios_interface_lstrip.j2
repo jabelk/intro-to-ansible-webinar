@@ -1,10 +1,12 @@
-#jinja2: lstrip_blocks: True
-{% for iname, idata in interfaces.items() %}
-interface {{ iname }}
-   {% if idata.description is defined %}
-   description {{ idata.description }} 
+#jinja2: lstrip_blocks:True, trim_blocks:True
+{% for interface_item in interfaces %}
+interface {{ interface_item.name }}
+   {% if interface_item.description is defined %}
+   description {{ interface_item.description }} 
    {% endif %}
-   {% if idata.ipv4addr is defined and idata.subnet is defined %}
-   ip address {{ idata.ipv4addr }} {{idata.subnet}}
-   {% endif %}
+{% if interface_item.ipv4addr is defined and interface_item.subnet is defined %}
+   ip address {{ interface_item.ipv4addr }} {{interface_item.subnet}}
+{% endif %}
+   no shutdown
 {% endfor %}
+

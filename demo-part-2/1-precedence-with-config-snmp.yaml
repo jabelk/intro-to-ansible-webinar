@@ -1,0 +1,14 @@
+---
+  - name: "PLAY 1 - SIMPLE J2 & REVIEW HOST_VARS"
+    hosts: "all"
+    connection: "network_cli"
+    gather_facts: no
+    tasks:
+
+      - name: "TASK 1 - BUILD & PUSH IOS & NXOS SNMP CONFIG"
+        ansible.netcommon.cli_config:
+          config: "{{ lookup('template', 'snmp.j2') }}"
+
+      - name: "TASK 2 - VERIFY IOS & NXOS SNMP CONFIG"
+        ansible.netcommon.cli_command:
+          command: "show run | include snmp-server"

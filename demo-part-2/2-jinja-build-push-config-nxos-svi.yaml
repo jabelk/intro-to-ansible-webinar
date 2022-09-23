@@ -1,5 +1,5 @@
 ---
-  - name: "PLAY 1 - TBD"
+  - name: "PLAY 1 - BUILD AND PUSH NXOS SVI CONFIG"
     hosts: "switches"
     connection: "network_cli"
     gather_facts: no
@@ -7,15 +7,15 @@
 
       - name: "TASK 1 - ENSURE CONFIG DIR EXISTS"
         ansible.builtin.file:
-          path: "config"
+          path: "config/build"
           state: "directory"
           mode: 0775
         run_once: true
 
-      - name: "TASK 2 - BUILD IOS SVI CONFIG"
+      - name: "TASK 2 - BUILD NXOS SVI CONFIG"
         ansible.builtin.template:
           src: "cisco_nxos_svi.j2"
-          dest: "config/{{ inventory_hostname }}_svi_config.txt"
+          dest: "config/build/{{ inventory_hostname }}_svi_config.txt"
 
       - name: "TASK 4 - CONFIGURE A SIMPLE L3 INTERFACE"
         cisco.nxos.nxos_config:
